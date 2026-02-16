@@ -1,0 +1,425 @@
+{
+    "HomePage": {
+        "title": "Welcome to LACO",
+        "subtitle": "Attorneys at Law"
+    },
+    "Hero": {
+        "tagline": "Superior Advocacy & Fiduciary Excellence",
+        "title_prefix": "Upholding the",
+        "title_main": "Absolute Legacy of Law.",
+        "description": "At LACO, we transcend traditional legal representation. We are the architects of structural security, specializing in high-order corporate frameworks, complex multi-jurisdictional litigation, and discrete private wealth management.",
+        "cta_consult": "Initialize Consultation",
+        "cta_explore": "Explore Our Expertise"
+    },
+    "Navigation": {
+        "home": "Home",
+        "about": "About",
+        "practice": "Practice Areas",
+        "why_laco": "Why Laco",
+        "team": "Our Team",
+        "news": "News",
+        "contact": "Contact"
+    },
+    "Contact": {
+        "title": "Initialize Engagement",
+        "secure": "Secure Communication",
+        "desc": "Your inquiry is handled with absolute confidentiality and processed by our senior tactical team within 24 hours.",
+        "chancery": "The Chancery",
+        "office_hours": "Office Hours",
+        "secure_line": "Secure Line",
+        "email": "Encryption Email",
+        "form": {
+            "identity": "Identity",
+            "contact_point": "Contact Point",
+            "legal_class": "Legal Classification",
+            "brief": "The Brief",
+            "name_placeholder": "FULL NAME",
+            "email_placeholder": "EMAIL ADDRESS",
+            "brief_placeholder": "DESCRIBE THE SITUATION...",
+            "submit": "Initialize Transmission",
+            "select_practice": "Select Practice Area"
+        }
+    },
+    "Philosophy": {
+        "label": "Our Philosophy",
+        "title": "Indomitable <br> Strategic Resilience <br> <span class='italic'>in Every Brief.</span>",
+        "desc1": "Based in Denpasar with a reach that spans Jakarta and Yogyakarta, LACO represents a new paradigm. We have abandoned the passive nature of conventional law firms for a proactive methodology.",
+        "desc2": "Our practice is forged at the intersection of modern tactical intelligence and the enduring gravitas of traditional legal scholarship. We master legal nuances to architect pathways for growth.",
+        "cta": "The LACO Standard of Excellence",
+        "features": {
+            "fortified": {
+                "title": "Fortified Rights",
+                "desc": "Protecting your assets and personal legacy from global economic shifts and local regulatory changes."
+            },
+            "justice": {
+                "title": "Masterful Justice",
+                "desc": "Dominant application of jurisprudence and a relentless presence in the courtroom to achieve equilibrium."
+            },
+            "corporate": {
+                "title": "Strategic Corporate",
+                "desc": "From multi-national market entry to SME acceleration, we ensure business structures are optimized for growth."
+            },
+            "elite": {
+                "title": "Elite Outcomes",
+                "desc": "Outcome-driven strategies that prioritize client victory. We measure success by your growth and security."
+            }
+        }
+    },
+    "TrustQuote": {
+        "quote": "LACO is the firm of choice for those who recognize that in a world of legal uncertainty, precision and resilience are the only true safeguards.",
+        "author": "Client Council Review 2024"
+    },
+    "PracticeAreas": {
+        "label": "Specialized Legal Solutions",
+        "title": "Fields of Expertise",
+        "desc": "Our firm is organized into elite tactical units possessed of deep domain mastery. We provide the architecture necessary to navigate global legal landscapes from Denpasar, Jakarta, and Yogyakarta.",
+        "explore": "Explore Expertise",
+        "cta_section_title": "Seek Bespoke Counsel.",
+        "cta_section_desc": "Every situation demands a unique tactical approach. Our attorneys work in precision-oriented squads to deliver surgical legal results that protect your business and empower your legacy.",
+        "cta_consult": "Initialize Consultation",
+        "items": {
+            "private-lawyer": {
+                "title": "Private Lawyer",
+                "desc": "Tailored legal representation for high-net-worth individuals with absolute discretion and structural integrity."
+            },
+            "litigation": {
+                "title": "Litigation",
+                "desc": "Resilient advocacy in commercial, civil, and criminal disputes focused on achieving favorable outcomes."
+            },
+            "company-setup": {
+                "title": "Company Set Up",
+                "desc": "Seamless corporate establishment, handling all regulatory compliances and OSS-RBA licensing."
+            },
+            "merger-acquisition": {
+                "title": "M & A",
+                "desc": "Comprehensive legal due diligence and advisory for mergers, acquisitions, and divestitures."
+            },
+            "aviation-crisis": {
+                "title": "Aviation Crisis",
+                "desc": "Elite casualty defense and crisis management for aeronautical incidents and aerospace liability."
+            },
+            "notary-service": {
+                "title": "Notary Service",
+                "desc": "Official authentication and structural design for deeds, land transactions, and contracts."
+            },
+            "family-law": {
+                "title": "Family Law",
+                "desc": "Compassionate handling of matrimonial matters and inheritance with absolute privacy."
+            },
+            "intellectual-property": {
+                "title": "I.P. Law",
+                "desc": "Global protection strategies for trademarks, patents, and copyrights to secure your brand equity."
+            },
+            "immigration-employment": {
+                "title": "Global Staffing",
+                "desc": "Expert assistance with visas, work permits, and employment law compliance for corporations."
+            },
+            "probono": {
+                "title": "Pro Bono",
+                "desc": "Our commitment to justice for all. Specialized resources for public interest causes."
+            }
+        }
+    },
+    "Team": {
+        "label": "OUR CUSTODIANS",
+        "title": "Architects of Justice.",
+        "view_all": "VIEW FULL ROSTER",
+        "members": {
+            "1": {
+                "role": "MANAGING PARTNER",
+                "bio": "Specializing in international corporate law with over 20 years of experience."
+            },
+            "2": {
+                "role": "SENIOR COUNSEL",
+                "bio": "Expert in high-profile litigation and dispute resolution."
+            },
+            "3": {
+                "role": "PARTNER",
+                "bio": "Focusing on intellectual property and digital assets."
+            },
+            "4": {
+                "role": "ASSOCIATE",
+                "bio": "Specialist in mergers, acquisitions, and corporate restructuring."
+            }
+        }
+    },
+    "News": {
+        "label": "LATEST INTELLIGENCE",
+        "title_prefix": "Firm Insight &",
+        "title_suffix": "Global Perspectives.",
+        "view_all": "VIEW ALL ARTICLES",
+        "items": {
+            "1": {
+                "category": "LAW UPDATE",
+                "title": "The Shift in Global Taxation Policies for 2025"
+            },
+            "2": {
+                "category": "FIRM NEWS",
+                "title": "LACO Recognized as Top Tier for Corporate Litigation"
+            },
+            "3": {
+                "category": "INSIGHT",
+                "title": "Navigating Cross-Border Mergers in a Volatile Market"
+            }
+        }
+    },
+    "Footer": {
+        "copy": "LACO | Attorney at Law • The Resilience Firm",
+        "contact_info": "Contact Info",
+        "quick_nav": "Quick Navigation",
+        "practices": "Practices",
+        "firm_ethos": "Firm Ethos",
+        "counsel": "Counsel",
+        "insights": "Insights",
+        "engagement": "Engagement",
+        "legal_terms": "Legal Terms",
+        "about_us": "Upholding justice with elegance, professionalism, and unwavering resilience. Your premier legal partner in Bali, Jakarta, and Yogyakarta."
+    },
+    "WhyLaco": {
+        "label": "The LACO Standard",
+        "title_1": "Commanding",
+        "title_2": "Absolute",
+        "title_3": "Excellence.",
+        "p1": "In the arena of high-stakes law, professionalism is not merely a conduct—it is an architectural discipline. LACO was founded on the principle that elite legal counsel must be as resilient as the interests it protects.",
+        "p2": "We do not simply offer advice; we engineer tactical victories and provide the structural certainty required for global business expansion and private legacy preservation.",
+        "founder_role": "Founder & Managing Partner",
+        "ethos_title": "An Unwavering Ethos",
+        "ethos_desc": "\"At LACO, resilience is our core. Every partner and associate is hand-selected for their intellectual stamina, tactical brilliance, and unwavering commitment to client outcomes.\"",
+        "ethos_author": "— Founding Principle",
+        "mandate_label": "Our Perpetual Mandate",
+        "mandate_quote": "\"We do not merely represent clients; we champion their global legacies and architect the future of justice with indomitable resilience.\"",
+        "mandate_signature": "LACO | The Global Resilience Firm",
+        "cta_profile": "Request Firm Profile",
+        "pillars": {
+            "proactive": {
+                "title": "Proactive Dominance",
+                "desc": "We operate ahead of the curve. Our firm utilizes advanced predictive legal analysis to anticipate regulatory shifts and market volatility, ensuring your business remains insulated and prepared for three steps in the future."
+            },
+            "efficiency": {
+                "title": "Lethal Efficiency",
+                "desc": "Bureaucracy is the antithesis of growth. We have optimized every internal structural process to deliver world-class legal documentation and high-stakes strategy with unprecedented speed and surgical accuracy."
+            },
+            "shield": {
+                "title": "Absolute Fiduciary Shield",
+                "desc": "Confidentiality is our highest mandate. We deploy military-grade security protocols for all client data and maintain total discretion in all private, corporate, and governmental interactions."
+            }
+        }
+    },
+    "PracticePages": {
+        "back_to_practices": "← Back to Practices",
+        "practice_area": "Practice Area",
+        "coming_soon": "Detailed content for {title} is coming soon.",
+        "AviationCrisis": {
+            "label": "Aerospace Integrity",
+            "title": "Aviation Crisis.",
+            "description": "\"When the stakes are in the sky, we provide the grounded resilience required for aerospace liability defense and casualty mitigation.\"",
+            "main_title": "Navigating the Atmosphere of Legal Liability",
+            "p1": "Aviation law is uniquely complex, governed by international conventions (Montreal, Warsaw), local acts, and intricate insurance liabilities. Our unit provides immediate intervention in aeronautical casualties.",
+            "p2": "Led by specialists in aeronautical litigation, we represent airlines and stakeholders through post-accident investigations and multi-jurisdictional dispute resolution with surgical precision.",
+            "feature1_title": "Casualty Response",
+            "feature1_desc": "24/7 crisis management for aviation incidents, coordinating with KNKT and insurance providers.",
+            "feature2_title": "Transnational Liability",
+            "feature2_desc": "Expertise in the Montreal Convention and managing claims across international jurisdictions.",
+            "sidebar_title": "Specialized Expertise",
+            "list": {
+                "1": "Accident Investigation Support",
+                "2": "Aerospace Product Liability",
+                "3": "Aviation Insurance Claims",
+                "4": "Passenger & Cargo Liability",
+                "5": "Regulatory Compliance"
+            },
+            "cta_title": "Unwavering Support in Crisis.",
+            "cta_button": "Request Emergency Legal Brief"
+        },
+        "CompanySetUp": {
+            "label": "Business Architecture",
+            "title": "Company Establishment.",
+            "description": "\"We lay the bedrock for Indonesian market entry. Navigating the OSS-RBA system with precision for global entrepreneurs.\"",
+            "main_title": "Navigating the Indonesian Regulatory Framework",
+            "p1": "Establishing a presence in Indonesia requires more than just paperwork—it requires a deep understanding of sectoral regulations, licensing hierarchies, and the evolving investment list (DNI). LACO provides a turnkey solution for foreign investors (PT PMA) and domestic entities, ensuring full compliance from day one to facilitate rapid business acceleration.",
+            "feature1_title": "PT PMA Expertise",
+            "feature1_desc": "Specialized advisory on foreign ownership limits and minimum capital requirements for diverse industries.",
+            "feature2_title": "Operational Licensing",
+            "feature2_desc": "End-to-end management of NIB, operational permits, and specific sectoral certifications via the OSS system.",
+            "sidebar_title": "Establishment Path",
+            "list": {
+                "1": "Corporate Structuring & Bylaws",
+                "2": "Ministry of Law & Human Rights Approval",
+                "3": "Tax ID (NPWP) Registration",
+                "4": "Business Classification (KBLI) Advisory",
+                "5": "Venture Capital & Funding Advisory"
+            },
+            "cta_title": "Foundation for Growth.",
+            "cta_button": "Start My Business Entry"
+        },
+        "FamilyLaw": {
+            "label": "Private Affairs",
+            "title": "Family Law.",
+            "description": "\"Compassion guided by discretion. Protecting the integrity of your most personal legal matters with absolute privacy.\"",
+            "main_title": "Safeguarding Personal & Matrimonial Rights",
+            "p1": "Family law at LACO is handled by a specialized boutique team that understands the delicate balance between emotional complexity and legal precision. We provide robust representation in matrimonial disputes, inheritance settlements, and guardianship matters, always prioritizing the long-term well-being of our clients and their legacy.",
+            "feature1_title": "Strict Confidentiality",
+            "feature1_desc": "Your family matters are handled with the highest level of privacy to protect your reputation and personal life.",
+            "feature2_title": "Legacy Protection",
+            "feature2_desc": "Ensuring inheritance and estate planning documents are bulletproof and reflect your exact intentions.",
+            "sidebar_title": "Specializations",
+            "list": {
+                "1": "International Divorce & Settlement",
+                "2": "Child Custody & Guardianship",
+                "3": "Prenuptial & Postnuptial Agreements",
+                "4": "Estate & Inheritance Distribution",
+                "5": "Private Mediation & Reconciliation"
+            },
+            "cta_title": "Discreet Legal Sanctuary.",
+            "cta_button": "Consult Privately"
+        },
+        "ImmigrationEmployment": {
+            "label": "Global Mobility",
+            "title": "Global Staffing.",
+            "description": "\"Seamless talent integration. Navigating the complex nexus of Indonesian immigration and labor laws for global corporations.\"",
+            "main_title": "Empowering International Talent & Compliance",
+            "p1": "As Bali evolves into a premier global business hub, the demand for sophisticated expatriate management and labor compliance is paramount. LACO provides comprehensive legal services covering all aspects of stay-permits (KITAS/KITAP) and Indonesian employment law, ensuring that your international talent can focus on business growth while remaining strictly within the legal framework.",
+            "feature1_title": "Immigration Strategy",
+            "feature1_desc": "Selecting the optimal visa structure for investors, professionals, and remote teams.",
+            "feature2_title": "Labor Compliance",
+            "feature2_desc": "Drafting employment contracts and internal policies that adhere to the Omnibus Law and local labor standards.",
+            "sidebar_title": "Service Focus",
+            "list": {
+                "1": "Working & Investment KITAS",
+                "2": "Golden Visa & Permanent Residency",
+                "3": "Work Permit (RPTKA) Management",
+                "4": "Termination (PHK) Legal Advisory",
+                "5": "Collective Bargaining & Labor Unions"
+            },
+            "cta_title": "Seamless Global Operations.",
+            "cta_button": "Manage My Global Team"
+        },
+        "IntellectualProperty": {
+            "label": "Innovation Guard",
+            "title": "I.P. Law.",
+            "description": "\"Your ideas are your greatest assets. We deploy global protection strategies to secure your innovation and brand equity.\"",
+            "main_title": "Safeguarding Creative and Intellectual Capital",
+            "p1": "In the modern economy, intellectual property is often more valuable than physical assets. LACO’s IP practice is dedicated to the identification, registration, and aggressive defense of trademarks, patents, and copyrights. From tech startups in Denpasar to global luxury brands entering Bali, we provide a robust shield against infringement and brand dilution.",
+            "feature1_title": "Trademark Strategy",
+            "feature1_desc": "Comprehensive registration and portfolio management to ensure brand exclusivity in the Indonesian market.",
+            "feature2_title": "IP Enforcement",
+            "feature2_desc": "Lethal legal action against counterfeiting and unauthorized usage of your protected assets.",
+            "sidebar_title": "Asset Protection",
+            "list": {
+                "1": "Trademark & Logo Registration",
+                "2": "Copyright for Digital & Creative Media",
+                "3": "Patent Filing & Advisory",
+                "4": "Licensing & Franchise Agreements",
+                "5": "IP Audit & Valuation"
+            },
+            "cta_title": "Legacy Protection through Innovation.",
+            "cta_button": "Protect My Assets"
+        },
+        "Litigation": {
+            "label": "Aggressive Advocacy",
+            "title": "Litigation.",
+            "description": "\"Trial-ready, strategy-driven. We navigate high-conflict disputes with tactical brilliance and indomitable resilience.\"",
+            "main_title": "Dominating the Legal Arena",
+            "p1": "Litigation at LACO is not just about conflict—it's about the surgical application of law to achieve client objectives. Whether in civil, commercial, or high-profile criminal matters, our litigators combine deep legal scholarship with aggressive tactical maneuvering to out-position adversaries.",
+            "feature1_title": "Outcome-Oriented Strategy",
+            "feature1_desc": "We analyze every case through a commercial lens, ensuring that our litigation path aligns with your broader business success.",
+            "feature2_title": "Alternative Dispute Resolution",
+            "feature2_desc": "Expertise in mediation and arbitration to resolve complex disputes outside the public courtroom when beneficial.",
+            "sidebar_title": "Case Proficiency",
+            "list": {
+                "1": "Commercial Contract Disputes",
+                "2": "Shareholder & Partner Conflicts",
+                "3": "Real Estate & Land Litigation",
+                "4": "Criminal Defense (Corporate/White Collar)",
+                "5": "Employment & Labor Disputes"
+            },
+            "cta_title": "Winning is a Strategic Habit.",
+            "cta_button": "Initialize Legal Action"
+        },
+        "MergerAcquisition": {
+            "label": "Corporate Consolidation",
+            "title": "M & A.",
+            "description": "\"Mastering the art of the deal. We provide high-level due diligence and structural advisory for seamless corporate evolution.\"",
+            "main_title": "Engineering Strategic Corporate Transitions",
+            "p1": "In the fast-paced M&A landscape, information is power and structure is security. LACO acts as the primary legal navigator for acquisitions, mergers, and divestitures. Our approach is characterized by relentless due diligence and a focus on long-term post-merger viability, ensuring that every transaction serves as a catalyst for exponential growth.",
+            "feature1_title": "Comprehensive Due Diligence",
+            "feature1_desc": "Surgical analysis of legal, financial, and operational risks to ensure absolute transparency before commitment.",
+            "feature2_title": "Structural Optimization",
+            "feature2_desc": "Designing transaction frameworks that maximize tax efficiency and minimize future regulatory liabilities.",
+            "sidebar_title": "Transaction Scope",
+            "list": {
+                "1": "Share Purchase Agreements (SPA)",
+                "2": "Asset Purchase Frameworks",
+                "3": "Joint Venture Formations",
+                "4": "Corporate Restructuring",
+                "5": "Post-Merger Legal Integration"
+            },
+            "cta_title": "Strategic Evolution.",
+            "cta_button": "Request M&A Advisory"
+        },
+        "NotaryService": {
+            "label": "Fiduciary Precision",
+            "title": "Notary Service.",
+            "description": "\"The bedrock of every legal transaction is authentication. We provide the architectural certainty your contracts deserve.\"",
+            "main_title": "Authenticating the Future of Your Business",
+            "p1": "In the Indonesian legal system, the role of the Notary (and PPAT) is fundamental to transaction validity. At LACO, we view Notary Services as a crucial architectural phase in legal structural design.",
+            "p2": "Led by Andita Suharto, S.H., M.Kn., our unit ensures that every deed and agreement is authenticated with absolute fiduciary precision, providing indisputable documentation for your investments.",
+            "feature1_title": "Real Estate & Land",
+            "feature1_desc": "Official authentication for property transfers and land rights across Bali and Yogyakarta.",
+            "feature2_title": "Corporate Deeds",
+            "feature2_desc": "Authenticating articles of association and complex corporate contracts with precision.",
+            "sidebar_title": "Notarial Scope",
+            "list": {
+                "1": "Authentic Deeds (Akte Otentik)",
+                "2": "Land Transfer (PPAT)",
+                "3": "Document Legalization",
+                "4": "Inheritance Distribution",
+                "5": "Layanan Fidusia"
+            },
+            "cta_title": "Indisputable Structural Security.",
+            "cta_button": "Book Notarial Session"
+        },
+        "PrivateLawyer": {
+            "label": "Concierge Legal Service",
+            "title": "Private Lawyer.",
+            "description": "\"Exclusivity meets absolute protection. We serve as the primary legal architect for high-net-worth individuals and family offices.\"",
+            "main_title": "Personalized Shield for Global Interests",
+            "p1": "Being a private lawyer at LACO transcends traditional representation. It is a commitment to a lifelong partnership where discretion is the highest currency. We navigate the intersection of private wealth and complex regulatory frameworks.",
+            "feature1_title": "Wealth Protection",
+            "feature1_desc": "Structuring assets to mitigate risks from political, economic, or legal shifts globally.",
+            "feature2_title": "Family Office",
+            "feature2_desc": "Integrated legal support for family-managed entities, ensuring seamless intergenerational transitions.",
+            "sidebar_title": "Service Focus",
+            "list": {
+                "1": "Pre-emptive Risk Audits",
+                "2": "International Asset Structuring",
+                "3": "Contractual Negotiation",
+                "4": "Reputation Management",
+                "5": "Private Dispute Mediation"
+            },
+            "cta_title": "Architecture for Success.",
+            "cta_button": "Request Private Consultation"
+        },
+        "ProbonoService": {
+            "label": "Social Responsibility",
+            "title": "Pro Bono.",
+            "description": "\"Justice is a fundamental right, not a luxury. We provide elite legal aid to those who serve the public interest.\"",
+            "main_title": "Our Commitment to Equity & Community",
+            "p1": "At LACO, we believe that professionalism is defined by the impact we have on our community. Our Pro Bono practice is an integral part of our firm's identity, where we dedicate the same level of strategic rigor and legal mastery to non-profits, individuals in need, and social causes that we do for our corporate clients.",
+            "feature1_title": "Community Advocacy",
+            "feature1_desc": "Representing individuals in civil rights and public interest cases that define the future of justice in Bali.",
+            "feature2_title": "Non-Profit Structural Support",
+            "feature2_desc": "Providing free legal establishment and compliance for charities and foundations dedicated to social good.",
+            "sidebar_title": "Program Areas",
+            "list": {
+                "1": "Legal Aid for Underserved Individuals",
+                "2": "NGO Compliance & Licensing",
+                "3": "Environmental Protection Advocacy",
+                "4": "Human Rights Litigation Support",
+                "5": "Legal Education Workshops"
+            },
+            "cta_title": "Justice for Every Legacy.",
+            "cta_button": "Support Our Mission"
+        }
+    }
+}

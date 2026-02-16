@@ -3,7 +3,7 @@
 import Image, { ImageProps } from "next/image";
 import { cn } from "@/lib/utils";
 
-interface LacoImageProps extends Omit<ImageProps, "loader"> {
+interface LacoImageProps extends Omit<ImageProps, "loader" | "src"> {
     path: string; // ImageKit path (e.g., "/team/john.jpg")
     alt: string;
 }
@@ -33,7 +33,9 @@ export function LacoImage({ path, alt, className, ...props }: LacoImageProps) {
                 loader={imageKitLoader}
                 src={path}
                 alt={alt}
-                className="transition-all duration-700 ease-out grayscale hover:grayscale-0 block w-full h-full object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="transition-all duration-700 ease-out grayscale hover:grayscale-0 object-cover"
                 {...props}
             />
         </div>

@@ -1,33 +1,73 @@
 export const PRACTICE_AREAS = [
-  {
-    id: "01",
-    title: "CORPORATE STRUCTURING",
-    description: "Architecting resilient frameworks for multinational entities.",
-    icon: "Building2", // Lucide icon name
+  { 
+    id: '1', 
+    slug: 'private-lawyer', 
+    title: 'items.private-lawyer.title', 
+    icon: 'User', 
+    description: 'items.private-lawyer.desc' 
   },
-  {
-    id: "02",
-    title: "PRIVATE WEALTH",
-    description: "Discrete management and preservation of high-value assets.",
-    icon: "Landmark",
+  { 
+    id: '2', 
+    slug: 'litigation', 
+    title: 'items.litigation.title', 
+    icon: 'Gavel', 
+    description: 'items.litigation.desc' 
   },
-  {
-    id: "03",
-    title: "LITIGATION",
-    description: "High-stakes dispute resolution across multiple jurisdictions.",
-    icon: "Scale",
+  { 
+    id: '3', 
+    slug: 'company-setup', 
+    title: 'items.company-setup.title', 
+    icon: 'Building2', 
+    description: 'items.company-setup.desc' 
   },
-  {
-    id: "04",
-    title: "INTELLECTUAL PROPERTY",
-    description: "Safeguarding intangible assets in a digital-first economy.",
-    icon: "ShieldCheck",
+  { 
+    id: '4', 
+    slug: 'merger-acquisition', 
+    title: 'items.merger-acquisition.title', 
+    icon: 'Combine', 
+    description: 'items.merger-acquisition.desc' 
   },
-  {
-    id: "05",
-    title: "MERGERS & ACQUISITIONS",
-    description: "Strategic consolidation and leveraged buyouts.",
-    icon: "Handshake",
+  { 
+    id: '5', 
+    slug: 'aviation-crisis', 
+    title: 'items.aviation-crisis.title', 
+    icon: 'Plane', 
+    description: 'items.aviation-crisis.desc' 
+  },
+  { 
+    id: '6', 
+    slug: 'notary-service', 
+    title: 'items.notary-service.title', 
+    icon: 'PenTool', 
+    description: 'items.notary-service.desc' 
+  },
+  { 
+    id: '7', 
+    slug: 'family-law', 
+    title: 'items.family-law.title', 
+    icon: 'Users', 
+    description: 'items.family-law.desc' 
+  },
+  { 
+    id: '8', 
+    slug: 'intellectual-property', 
+    title: 'items.intellectual-property.title', 
+    icon: 'ShieldCheck', 
+    description: 'items.intellectual-property.desc' 
+  },
+  { 
+    id: '9', 
+    slug: 'immigration-employment', 
+    title: 'items.immigration-employment.title', 
+    icon: 'PlaneTakeoff', 
+    description: 'items.immigration-employment.desc' 
+  },
+  { 
+    id: '10', 
+    slug: 'probono', 
+    title: 'items.probono.title', 
+    icon: 'Heart', 
+    description: 'items.probono.desc' 
   },
 ];
 
@@ -35,29 +75,29 @@ export const TEAM_MEMBERS = [
   {
     id: "1",
     name: "ALEXANDER VANCE",
-    role: "MANAGING PARTNER",
-    bio: "Specializing in international corporate law with over 20 years of experience.",
+    role: "members.1.role",
+    bio: "members.1.bio",
     imageUrl: "/images/team1.jpg", // Placeholder
   },
   {
     id: "2",
     name: "ELIZABETH STERLING",
-    role: "SENIOR COUNSEL",
-    bio: "Expert in high-profile litigation and dispute resolution.",
+    role: "members.2.role",
+    bio: "members.2.bio",
     imageUrl: "/images/team2.jpg",
   },
   {
     id: "3",
     name: "JULIAN BLACKWOOD",
-    role: "PARTNER",
-    bio: "Focusing on intellectual property and digital assets.",
+    role: "members.3.role",
+    bio: "members.3.bio",
     imageUrl: "/images/team3.jpg",
   },
   {
     id: "4",
     name: "VICTORIA CHEN",
-    role: "ASSOCIATE",
-    bio: "Specialist in mergers, acquisitions, and corporate restructuring.",
+    role: "members.4.role",
+    bio: "members.4.bio",
     imageUrl: "/images/team4.jpg",
   },
 ];
@@ -65,23 +105,25 @@ export const TEAM_MEMBERS = [
 export const NEWS_ITEMS = [
   {
     id: "1",
-    category: "LAW UPDATE",
-    title: "The Shift in Global Taxation Policies for 2025",
+    category: "items.1.category",
+    title: "items.1.title",
     imageUrl: "/images/news1.jpg",
     slug: "global-taxation-2025",
   },
   {
     id: "2",
-    category: "FIRM NEWS",
-    title: "LACO Recognized as Top Tier for Corporate Litigation",
+    category: "items.2.category",
+    title: "items.2.title",
     imageUrl: "/images/news2.jpg",
     slug: "laco-top-tier-recognition",
   },
   {
     id: "3",
-    category: "INSIGHT",
-    title: "Navigating Cross-Border Mergers in a Volatile Market",
+    category: "items.3.category",
+    title: "items.3.title",
     imageUrl: "/images/news3.jpg",
     slug: "cross-border-mergers",
   },
 ];
+
+export const INFO_NEWS = NEWS_ITEMS;

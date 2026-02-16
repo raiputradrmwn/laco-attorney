@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/routing"; // Updated import
 import { cn } from "@/lib/utils"; // Shadcn utility
 
 interface MobileNavProps {

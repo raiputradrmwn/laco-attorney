@@ -1,0 +1,425 @@
+{
+    "HomePage": {
+        "title": "Selamat Datang di LACO",
+        "subtitle": "Pengacara & Konsultan Hukum"
+    },
+    "Hero": {
+        "tagline": "Advokasi Unggul & Keunggulan Fidusia",
+        "title_prefix": "Menegakkan",
+        "title_main": "Warisan Hukum Mutlak.",
+        "description": "Di LACO, kami melampaui representasi hukum tradisional. Kami adalah arsitek keamanan struktural, yang mengkhususkan diri dalam kerangka kerja korporat tingkat tinggi, litigasi multi-yurisdiksi yang kompleks, dan manajemen kekayaan pribadi yang terpisah.",
+        "cta_consult": "Mulai Konsultasi",
+        "cta_explore": "Jelajahi Keahlian Kami"
+    },
+    "Navigation": {
+        "home": "Beranda",
+        "about": "Tentang Kami",
+        "practice": "Area Praktik",
+        "why_laco": "Kenapa Laco",
+        "team": "Tim Kami",
+        "news": "Berita",
+        "contact": "Hubungi Kami"
+    },
+    "Contact": {
+        "title": "Mulai Konsultasi",
+        "secure": "Komunikasi Aman",
+        "desc": "Pertanyaan Anda ditangani dengan kerahasiaan mutlak dan diproses oleh tim taktis senior kami dalam waktu 24 jam.",
+        "chancery": "Kantor Pusat",
+        "office_hours": "Jam Operasional",
+        "secure_line": "Jalur Aman",
+        "email": "Email Terenkripsi",
+        "form": {
+            "identity": "Identitas",
+            "contact_point": "Titik Kontak",
+            "legal_class": "Klasifikasi Hukum",
+            "brief": "Ringkasan",
+            "name_placeholder": "NAMA LENGKAP",
+            "email_placeholder": "ALAMAT EMAIL",
+            "brief_placeholder": "JELASKAN SITUASINYA...",
+            "submit": "Mulai Transmisi",
+            "select_practice": "Pilih Area Praktik"
+        }
+    },
+    "Philosophy": {
+        "label": "Filosofi Kami",
+        "title": "Ketahanan <br> Strategis Tak Tergoyahkan <br> <span class='italic'>dalam Setiap Kasus.</span>",
+        "desc1": "Berbasis di Denpasar dengan jangkauan yang mencakup Jakarta dan Yogyakarta, LACO mewakili paradigma baru. Kami telah meninggalkan sifat pasif firma hukum konvensional demi metodologi proaktif.",
+        "desc2": "Praktik kami ditempa di persimpangan kecerdasan taktis modern dan gravitasi abadi beasiswa hukum tradisional. Kami menguasai nuansa hukum untuk merancang jalan menuju pertumbuhan.",
+        "cta": "Standar Keunggulan LACO",
+        "features": {
+            "fortified": {
+                "title": "Hak yang Diperkuat",
+                "desc": "Melindungi aset dan warisan pribadi Anda dari pergeseran ekonomi global dan perubahan regulasi lokal."
+            },
+            "justice": {
+                "title": "Keadilan yang Mahir",
+                "desc": "Penerapan yurisprudensi yang dominan dan kehadiran tanpa henti di ruang sidang untuk mencapai keseimbangan."
+            },
+            "corporate": {
+                "title": "Strategi Korporat",
+                "desc": "Dari entri pasar multi-nasional hingga akselerasi UKM, kami memastikan struktur bisnis dioptimalkan untuk pertumbuhan."
+            },
+            "elite": {
+                "title": "Hasil Elit",
+                "desc": "Strategi yang didorong oleh hasil yang memprioritaskan kemenangan klien. Kami mengukur kesuksesan dengan pertumbuhan dan keamanan Anda."
+            }
+        }
+    },
+    "TrustQuote": {
+        "quote": "LACO adalah firma pilihan bagi mereka yang menyadari bahwa di dunia ketidakpastian hukum, presisi dan ketahanan adalah satu-satunya perlindungan sejati.",
+        "author": "Ulasan Dewan Klien 2024"
+    },
+    "PracticeAreas": {
+        "label": "Solusi Hukum Khusus",
+        "title": "Bidang Keahlian",
+        "desc": "Firma kami diorganisir menjadi unit taktis elit yang memiliki penguasaan domain yang mendalam. Kami menyediakan arsitektur yang diperlukan untuk menavigasi lanskap hukum global dari Denpasar, Jakarta, dan Yogyakarta.",
+        "explore": "Jelajahi Keahlian",
+        "cta_section_title": "Cari Penasihat Khusus.",
+        "cta_section_desc": "Setiap situasi menuntut pendekatan taktis yang unik. Pengacara kami bekerja dalam regu yang berorientasi presisi untuk memberikan hasil hukum bedah yang melindungi bisnis Anda dan memberdayakan warisan Anda.",
+        "cta_consult": "Mulai Konsultasi",
+        "items": {
+            "private-lawyer": {
+                "title": "Pengacara Pribadi",
+                "desc": "Representasi hukum yang disesuaikan untuk individu berpenghasilan tinggi dengan kebijaksanaan mutlak dan integritas struktural."
+            },
+            "litigation": {
+                "title": "Litigasi",
+                "desc": "Advokasi tangguh dalam sengketa komersial, perdata, dan pidana yang berfokus pada pencapaian hasil yang menguntungkan."
+            },
+            "company-setup": {
+                "title": "Pendirian Perusahaan",
+                "desc": "Pendirian perusahaan yang mulus, menangani semua kepatuhan peraturan dan perizinan OSS-RBA."
+            },
+            "merger-acquisition": {
+                "title": "Merger & Akuisisi",
+                "desc": "Uji tuntas hukum yang komprehensif dan konsultasi untuk merger, akuisisi, dan divestasi."
+            },
+            "aviation-crisis": {
+                "title": "Krisis Penerbangan",
+                "desc": "Pertahanan korban elit dan manajemen krisis untuk insiden penerbangan dan kewajiban dirgantara."
+            },
+            "notary-service": {
+                "title": "Layanan Notaris",
+                "desc": "Otentikasi resmi dan desain struktural untuk akta, transaksi tanah, dan kontrak."
+            },
+            "family-law": {
+                "title": "Hukum Keluarga",
+                "desc": "Penanganan penuh kasih atas masalah pernikahan dan warisan dengan privasi mutlak."
+            },
+            "intellectual-property": {
+                "title": "Hukum H.K.I.",
+                "desc": "Strategi perlindungan global untuk merek dagang, paten, dan hak cipta untuk mengamankan ekuitas merek Anda."
+            },
+            "immigration-employment": {
+                "title": "Ketenagakerjaan Global",
+                "desc": "Bantuan ahli dengan visa, izin kerja, dan kepatuhan hukum ketenagakerjaan untuk perusahaan."
+            },
+            "probono": {
+                "title": "Pro Bono",
+                "desc": "Komitmen kami untuk keadilan bagi semua. Sumber daya khusus untuk tujuan kepentingan umum."
+            }
+        }
+    },
+    "Team": {
+        "label": "PENJAGA KAMI",
+        "title": "Arsitek Keadilan.",
+        "view_all": "LIHAT DAFTAR LENGKAP",
+        "members": {
+            "1": {
+                "role": "MITRA PENGELOLA",
+                "bio": "Mengkhususkan diri dalam hukum perusahaan internasional dengan pengalaman lebih dari 20 tahun."
+            },
+            "2": {
+                "role": "PENASIHAT SENIOR",
+                "bio": "Ahli dalam litigasi profil tinggi dan penyelesaian sengketa."
+            },
+            "3": {
+                "role": "MITRA",
+                "bio": "Berfokus pada kekayaan intelektual dan aset digital."
+            },
+            "4": {
+                "role": "REKAN",
+                "bio": "Spesialis dalam merger, akuisisi, dan restrukturisasi perusahaan."
+            }
+        }
+    },
+    "News": {
+        "label": "INTELIJEN TERBARU",
+        "title_prefix": "Wawasan Firma &",
+        "title_suffix": "Perspektif Global.",
+        "view_all": "LIHAT SEMUA ARTIKEL",
+        "items": {
+            "1": {
+                "category": "PEMBARUAN HUKUM",
+                "title": "Pergeseran Kebijakan Perpajakan Global untuk 2025"
+            },
+            "2": {
+                "category": "BERITA FIRMA",
+                "title": "LACO Diakui sebagai Tingkat Teratas untuk Litigasi Perusahaan"
+            },
+            "3": {
+                "category": "WAWASAN",
+                "title": "Menavigasi Merger Lintas Batas di Pasar yang Mudah Berubah"
+            }
+        }
+    },
+    "Footer": {
+        "copy": "LACO | Pengacara Hukum • Firma Ketahanan",
+        "contact_info": "Info Kontak",
+        "quick_nav": "Navigasi Cepat",
+        "practices": "Praktik",
+        "firm_ethos": "Etos Firma",
+        "counsel": "Penasihat",
+        "insights": "Wawasan",
+        "engagement": "Keterlibatan",
+        "legal_terms": "Ketentuan Hukum",
+        "about_us": "Menegakkan keadilan dengan keanggunan, profesionalisme, dan ketahanan yang tak tergoyahkan. Mitra hukum utama Anda di Bali, Jakarta, dan Yogyakarta."
+    },
+    "WhyLaco": {
+        "label": "Standar LACO",
+        "title_1": "Memimpin",
+        "title_2": "Keunggulan",
+        "title_3": "Mutlak.",
+        "p1": "Di arena hukum tingkat tinggi, profesionalisme bukan hanya sekadar perilaku—itu adalah disiplin arsitektural. LACO didirikan atas prinsip bahwa penasihat hukum elit harus setangguh kepentingan yang dilindunginya.",
+        "p2": "Kami tidak hanya menawarkan nasihat; kami merancang kemenangan taktis dan memberikan kepastian struktural yang diperlukan untuk ekspansi bisnis global dan pelestarian warisan pribadi.",
+        "founder_role": "Pendiri & Mitra Pengelola",
+        "ethos_title": "Etos yang Teguh",
+        "ethos_desc": "\"Di LACO, ketahanan adalah inti kami. Setiap mitra dan rekan dipilih secara khusus karena stamina intelektual, kecerdasan taktis, dan komitmen teguh terhadap hasil klien.\"",
+        "ethos_author": "— Prinsip Pendiri",
+        "mandate_label": "Mandat Abadi Kami",
+        "mandate_quote": "\"Kami tidak hanya mewakili klien; kami memperjuangkan warisan global mereka dan merancang masa depan keadilan dengan ketahanan yang tak tergoyahkan.\"",
+        "mandate_signature": "LACO | Firma Ketahanan Global",
+        "cta_profile": "Minta Profil Firma",
+        "pillars": {
+            "proactive": {
+                "title": "Dominasi Proaktif",
+                "desc": "Kami beroperasi di depan kurva. Firma kami memanfaatkan analisis hukum prediktif canggih untuk mengantisipasi pergeseran regulasi dan volatilitas pasar, memastikan bisnis Anda tetap terisolasi dan siap untuk tiga langkah ke depan."
+            },
+            "efficiency": {
+                "title": "Efisiensi Mematikan",
+                "desc": "Birokrasi adalah antitesis pertumbuhan. Kami mengoptimalkan setiap proses struktural internal untuk memberikan dokumentasi hukum kelas dunia dan strategi berisiko tinggi dengan kecepatan dan akurasi bedah yang belum pernah terjadi sebelumnya."
+            },
+            "shield": {
+                "title": "Perisai Fidusia Mutlak",
+                "desc": "Kerahasiaan adalah mandat tertinggi kami. Kami menerapkan protokol keamanan tingkat militer untuk semua data klien dan menjaga kerahasiaan total dalam semua interaksi pribadi, perusahaan, dan pemerintah."
+            }
+        }
+    },
+    "PracticePages": {
+        "back_to_practices": "← Kembali ke Area Praktik",
+        "practice_area": "Area Praktik",
+        "coming_soon": "Konten detail untuk {title} akan segera hadir.",
+        "AviationCrisis": {
+            "label": "Integritas Dirgantara",
+            "title": "Krisis Penerbangan.",
+            "description": "\"Ketika taruhannya setinggi langit, kami memberikan ketahanan membumi yang diperlukan untuk pertahanan pertanggungjawaban kedirgantaraan dan mitigasi korban.\"",
+            "main_title": "Menavigasi Atmosfer Tanggung Jawab Hukum",
+            "p1": "Hukum penerbangan sangat kompleks, diatur oleh konvensi internasional (Montreal, Warsawa), undang-undang lokal, dan kewajiban asuransi yang rumit. Unit kami memberikan intervensi segera dalam kecelakaan penerbangan.",
+            "p2": "Dipimpin oleh spesialis dalam litigasi penerbangan, kami mewakili maskapai penerbangan dan pemangku kepentingan melalui investigasi pasca-kecelakaan dan penyelesaian sengketa multi-yurisdiksi dengan presisi bedah.",
+            "feature1_title": "Respon Kecelakaan",
+            "feature1_desc": "Manajemen krisis 24/7 untuk insiden penerbangan, berkoordinasi dengan KNKT dan penyedia asuransi.",
+            "feature2_title": "Kewajiban Transnasional",
+            "feature2_desc": "Keahlian dalam Konvensi Montreal dan mengelola klaim di seluruh yurisdiksi internasional.",
+            "sidebar_title": "Keahlian Khusus",
+            "list": {
+                "1": "Dukungan Investigasi Kecelakaan",
+                "2": "Kewajiban Produk Dirgantara",
+                "3": "Klaim Asuransi Penerbangan",
+                "4": "Kewajiban Penumpang & Kargo",
+                "5": "Kepatuhan Regulasi"
+            },
+            "cta_title": "Dukungan Tanpa Henti dalam Krisis.",
+            "cta_button": "Minta Ringkasan Hukum Darurat"
+        },
+        "CompanySetUp": {
+            "label": "Arsitektur Bisnis",
+            "title": "Pendirian Perusahaan.",
+            "description": "\"Kami meletakkan fondasi untuk masuk pasar Indonesia. Menavigasi sistem OSS-RBA dengan presisi untuk pengusaha global.\"",
+            "main_title": "Menavigasi Kerangka Regulasi Indonesia",
+            "p1": "Mendirikan kehadiran di Indonesia memerlukan lebih dari sekadar dokumen—memerlukan pemahaman mendalam tentang peraturan sektoral, hierarki perizinan, dan daftar investasi (DNI) yang berkembang. LACO menyediakan solusi siap pakai untuk investor asing (PT PMA) dan entitas domestik, memastikan kepatuhan penuh sejak hari pertama untuk memfasilitasi percepatan bisnis.",
+            "feature1_title": "Keahlian PT PMA",
+            "feature1_desc": "Penasihat khusus tentang batas kepemilikan asing dan persyaratan modal minimum untuk berbagai industri.",
+            "feature2_title": "Perizinan Operasional",
+            "feature2_desc": "Manajemen ujung-ke-ujung NIB, izin operasional, dan sertifikasi sektoral khusus melalui sistem OSS.",
+            "sidebar_title": "Jalur Pendirian",
+            "list": {
+                "1": "Penataan Perusahaan & Anggaran Dasar",
+                "2": "Persetujuan Kementerian Hukum & HAM",
+                "3": "Registrasi NPWP",
+                "4": "Penasihat Klasifikasi Bisnis (KBLI)",
+                "5": "Modal Ventura & Penasihat Pendanaan"
+            },
+            "cta_title": "Pondasi untuk Pertumbuhan.",
+            "cta_button": "Mulai Entri Bisnis Saya"
+        },
+        "FamilyLaw": {
+            "label": "Urusan Pribadi",
+            "title": "Hukum Keluarga.",
+            "description": "\"Kasih sayang dipandu oleh kebijaksanaan. Melindungi integritas masalah hukum paling pribadi Anda dengan privasi mutlak.\"",
+            "main_title": "Melindungi Hak Pribadi & Pernikahan",
+            "p1": "Hukum keluarga di LACO ditangani oleh tim butik khusus yang memahami keseimbangan halus antara kompleksitas emosional dan presisi hukum. Kami memberikan perwakilan yang kuat dalam sengketa pernikahan, penyelesaian warisan, dan masalah perwalian, selalu memprioritaskan kesejahteraan jangka panjang klien kami dan warisan mereka.",
+            "feature1_title": "Kerahasiaan Ketat",
+            "feature1_desc": "Masalah keluarga Anda ditangani dengan tingkat privasi tertinggi untuk melindungi reputasi dan kehidupan pribadi Anda.",
+            "feature2_title": "Perlindungan Warisan",
+            "feature2_desc": "Memastikan dokumen warisan dan perencanaan harta benda tidak dapat diganggu gugat dan mencerminkan niat tepat Anda.",
+            "sidebar_title": "Spesialisasi",
+            "list": {
+                "1": "Perceraian & Penyelesaian Internasional",
+                "2": "Hak Asuh Anak & Perwalian",
+                "3": "Perjanjian Pranikah & Pasca-nikah",
+                "4": "Distribusi Harta & Warisan",
+                "5": "Mediasi Pribadi & Rekonsiliasi"
+            },
+            "cta_title": "Tempat Perlindungan Hukum Pribadi.",
+            "cta_button": "Konsultasi Secara Pribadi"
+        },
+        "ImmigrationEmployment": {
+            "label": "Mobilitas Global",
+            "title": "Staf Global.",
+            "description": "\"Integrasi bakat yang mulus. Menavigasi hubungan kompleks antara undang-undang imigrasi dan ketenagakerjaan Indonesia untuk perusahaan global.\"",
+            "main_title": "Memberdayakan Bakat Internasional & Kepatuhan",
+            "p1": "Seiring Bali berkembang menjadi pusat bisnis global utama, permintaan akan manajemen ekspatriat yang canggih dan kepatuhan tenaga kerja sangatlah penting. LACO menyediakan layanan hukum komprehensif yang mencakup semua aspek izin tinggal (KITAS/KITAP) dan hukum ketenagakerjaan Indonesia, memastikan bakat internasional Anda dapat fokus pada pertumbuhan bisnis sambil tetap berada dalam kerangka hukum.",
+            "feature1_title": "Strategi Imigrasi",
+            "feature1_desc": "Memilih struktur visa yang optimal untuk investor, profesional, dan tim jarak jauh.",
+            "feature2_title": "Kepatuhan Tenaga Kerja",
+            "feature2_desc": "Menyusun kontrak kerja dan kebijakan internal yang mematuhi Omnibus Law dan standar ketenagakerjaan lokal.",
+            "sidebar_title": "Fokus Layanan",
+            "list": {
+                "1": "KITAS Kerja & Investasi",
+                "2": "Golden Visa & Tempat Tinggal Tetap",
+                "3": "Manajemen Izin Kerja (RPTKA)",
+                "4": "Penasihat Hukum Pemutusan Hubungan Kerja (PHK)",
+                "5": "Perundingan Bersama & Serikat Pekerja"
+            },
+            "cta_title": "Operasi Global yang Mulus.",
+            "cta_button": "Kelola Tim Global Saya"
+        },
+        "IntellectualProperty": {
+            "label": "Penjaga Inovasi",
+            "title": "Hukum H.K.I.",
+            "description": "\"Ide Anda adalah aset terbesar Anda. Kami menerapkan strategi perlindungan global untuk mengamankan inovasi dan ekuitas merek Anda.\"",
+            "main_title": "Melindungi Modal Kreatif dan Intelektual",
+            "p1": "Dalam ekonomi modern, kekayaan intelektual seringkali lebih berharga daripada aset fisik. Praktik HKI LACO didedikasikan untuk identifikasi, pendaftaran, dan pertahanan agresif merek dagang, paten, dan hak cipta. Dari startup teknologi di Denpasar hingga merek mewah global yang masuk ke Bali, kami menyediakan perisai kuat terhadap pelanggaran dan dilusi merek.",
+            "feature1_title": "Strategi Merek Dagang",
+            "feature1_desc": "Pendaftaran komprehensif dan manajemen portofolio untuk memastikan eksklusivitas merek di pasar Indonesia.",
+            "feature2_title": "Penegakan HKI",
+            "feature2_desc": "Tindakan hukum mematikan terhadap pemalsuan dan penggunaan tidak sah atas aset yang dilindungi Anda.",
+            "sidebar_title": "Perlindungan Aset",
+            "list": {
+                "1": "Pendaftaran Merek Dagang & Logo",
+                "2": "Hak Cipta untuk Media Digital & Kreatif",
+                "3": "Pengajuan & Penasihat Paten",
+                "4": "Perjanjian Lisensi & Waralaba",
+                "5": "Audit & Valuasi HKI"
+            },
+            "cta_title": "Perlindungan Warisan melalui Inovasi.",
+            "cta_button": "Lindungi Aset Saya"
+        },
+        "Litigation": {
+            "label": "Advokasi Agresif",
+            "title": "Litigasi.",
+            "description": "\"Siap sidang, didorong oleh strategi. Kami menavigasi sengketa konflik tinggi dengan kecerdasan taktis dan ketahanan tak tergoyahkan.\"",
+            "main_title": "Mendominasi Arena Hukum",
+            "p1": "Litigasi di LACO bukan hanya tentang konflik—ini tentang penerapan hukum secara bedah untuk mencapai tujuan klien. Baik dalam masalah perdata, komersial, atau pidana profil tinggi, litigator kami menggabungkan beasiswa hukum mendalam dengan manuver taktis agresif untuk mengungguli lawan.",
+            "feature1_title": "Strategi Berorientasi Hasil",
+            "feature1_desc": "Kami menganalisis setiap kasus melalui lensa komersial, memastikan bahwa jalur litigasi kami sejalan dengan kesuksesan bisnis Anda yang lebih luas.",
+            "feature2_title": "Penyelesaian Sengketa Alternatif",
+            "feature2_desc": "Keahlian dalam mediasi dan arbitrase untuk menyelesaikan sengketa kompleks di luar ruang sidang umum jika bermanfaat.",
+            "sidebar_title": "Keahlian Kasus",
+            "list": {
+                "1": "Sengketa Kontrak Komersial",
+                "2": "Konflik Pemegang Saham & Mitra",
+                "3": "Litigasi Real Estat & Tanah",
+                "4": "Pertahanan Pidana (Korporat/Kerah Putih)",
+                "5": "Sengketa Ketenagakerjaan & Perburuhan"
+            },
+            "cta_title": "Menang adalah Kebiasaan Strategis.",
+            "cta_button": "Mulai Tindakan Hukum"
+        },
+        "MergerAcquisition": {
+            "label": "Konsolidasi Korporat",
+            "title": "Merger & Akuisisi.",
+            "description": "\"Menguasai seni kesepakatan. Kami memberikan uji tuntas tingkat tinggi dan penasihat struktural untuk evolusi korporat yang mulus.\"",
+            "main_title": "Merekayasa Transisi Korporat Strategis",
+            "p1": "Dalam lanskap M&A yang serba cepat, informasi adalah kekuatan dan struktur adalah keamanan. LACO bertindak sebagai navigator hukum utama untuk akuisisi, merger, dan divestasi. Pendekatan kami ditandai dengan uji tuntas tanpa henti dan fokus pada kelangsungan hidup pasca-merger jangka panjang, memastikan bahwa setiap transaksi berfungsi sebagai katalis untuk pertumbuhan eksponensial.",
+            "feature1_title": "Uji Tuntas Komprehensif",
+            "feature1_desc": "Analisis bedah risiko hukum, keuangan, dan operasional untuk memastikan transparansi mutlak sebelum komitmen.",
+            "feature2_title": "Optimalisasi Struktural",
+            "feature2_desc": "Merancang kerangka kerja transaksi yang memaksimalkan efisiensi pajak dan meminimalkan kewajiban regulasi di masa depan.",
+            "sidebar_title": "Lingkup Transaksi",
+            "list": {
+                "1": "Perjanjian Pembelian Saham (SPA)",
+                "2": "Kerangka Pembelian Aset",
+                "3": "Pembentukan Usaha Patungan (Joint Venture)",
+                "4": "Restrukturisasi Korporat",
+                "5": "Integrasi Hukum Pasca-Merger"
+            },
+            "cta_title": "Evolusi Strategis.",
+            "cta_button": "Minta Penasihat M&A"
+        },
+        "NotaryService": {
+            "label": "Presisi Fidusia",
+            "title": "Layanan Notaris.",
+            "description": "\"Batu penjuru dari setiap transaksi hukum adalah otentikasi. Kami memberikan kepastian arsitektural yang layak untuk kontrak Anda.\"",
+            "main_title": "Mengesahkan Masa Depan Bisnis Anda",
+            "p1": "Dalam sistem hukum Indonesia, peran Notaris (dan PPAT) sangat mendasar bagi keabsahan transaksi. Di LACO, kami memandang Layanan Notaris sebagai fase arsitektural penting dalam desain struktural hukum.",
+            "p2": "Dipimpin oleh Andita Suharto, S.H., M.Kn., unit kami memastikan bahwa setiap akta dan perjanjian disahkan dengan presisi fidusia mutlak, memberikan dokumentasi yang tak terbantahkan untuk investasi Anda.",
+            "feature1_title": "Real Estat & Tanah",
+            "feature1_desc": "Otentikasi resmi untuk transfer properti dan hak tanah di seluruh Bali dan Yogyakarta.",
+            "feature2_title": "Akta Korporat",
+            "feature2_desc": "Mengesahkan anggaran dasar dan kontrak perusahaan yang kompleks dengan presisi.",
+            "sidebar_title": "Lingkup Notaris",
+            "list": {
+                "1": "Akta Otentik",
+                "2": "Peralihan Hak Tanah (PPAT)",
+                "3": "Legalisasi Dokumen",
+                "4": "Distribusi Warisan",
+                "5": "Layanan Fidusia"
+            },
+            "cta_title": "Keamanan Struktural yang Tak Terbantahkan.",
+            "cta_button": "Pesan Sesi Notaris"
+        },
+        "PrivateLawyer": {
+            "label": "Layanan Hukum Concierge",
+            "title": "Pengacara Pribadi.",
+            "description": "\"Eksklusivitas bertemu perlindungan mutlak. Kami melayani sebagai arsitek hukum utama untuk individu berpenghasilan tinggi dan kantor keluarga.\"",
+            "main_title": "Perisai Personal untuk Kepentingan Global",
+            "p1": "Menjadi pengacara pribadi di LACO melampaui representasi tradisional. Ini adalah komitmen untuk kemitraan seumur hidup di mana kebijaksanaan adalah mata uang tertinggi. Kami menavigasi persimpangan kekayaan pribadi dan kerangka kerja regulasi yang kompleks.",
+            "feature1_title": "Perlindungan Kekayaan",
+            "feature1_desc": "Menstruktur aset untuk memitigasi risiko dari pergeseran politik, ekonomi, atau hukum secara global.",
+            "feature2_title": "Kantor Keluarga",
+            "feature2_desc": "Dukungan hukum terintegrasi untuk entitas yang dikelola keluarga, memastikan transisi antargenerasi yang mulus.",
+            "sidebar_title": "Fokus Layanan",
+            "list": {
+                "1": "Audit Risiko Pre-emptif",
+                "2": "Penataan Aset Internasional",
+                "3": "Negosiasi Kontraktual",
+                "4": "Manajemen Reputasi",
+                "5": "Mediasi Sengketa Pribadi"
+            },
+            "cta_title": "Arsitektur untuk Sukses.",
+            "cta_button": "Minta Konsultasi Pribadi"
+        },
+        "ProbonoService": {
+            "label": "Tanggung Jawab Sosial",
+            "title": "Pro Bono.",
+            "description": "\"Keadilan adalah hak fundamental, bukan kemewahan. Kami memberikan bantuan hukum elit kepada mereka yang melayani kepentingan umum.\"",
+            "main_title": "Komitmen Kami untuk Kesetaraan & Komunitas",
+            "p1": "Di LACO, kami percaya bahwa profesionalisme didefinisikan oleh dampak yang kami miliki pada komunitas kami. Praktik Pro Bono kami adalah bagian integral dari identitas firma kami, di mana kami mendedikasikan tingkat ketelitian strategis dan penguasaan hukum yang sama untuk non-profit, individu yang membutuhkan, dan tujuan sosial seperti yang kami lakukan untuk klien korporat kami.",
+            "feature1_title": "Advokasi Komunitas",
+            "feature1_desc": "Mewakili individu dalam hak sipil dan kasus kepentingan umum yang menentukan masa depan keadilan di Bali.",
+            "feature2_title": "Dukungan Struktural Non-Profit",
+            "feature2_desc": "Memberikan pendirian hukum dan kepatuhan gratis untuk badan amal dan yayasan yang didedikasikan untuk kebaikan sosial.",
+            "sidebar_title": "Area Program",
+            "list": {
+                "1": "Bantuan Hukum untuk Individu Kurang Mampu",
+                "2": "Kepatuhan & Perizinan LSM",
+                "3": "Advokasi Perlindungan Lingkungan",
+                "4": "Dukungan Litigasi Hak Asasi Manusia",
+                "5": "Lokakarya Pendidikan Hukum"
+            },
+            "cta_title": "Keadilan untuk Setiap Warisan.",
+            "cta_button": "Dukung Misi Kami"
+        }
+    }
+}
