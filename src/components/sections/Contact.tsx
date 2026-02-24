@@ -6,11 +6,16 @@ import { AnimateIn } from '@/components/AnimateIn';
 import { AnimateText } from '@/components/AnimateText';
 import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
+import { toast } from "sonner";
 
 export function Contact() {
     const t = useTranslations('Contact');
     const [isOpen, setIsOpen] = useState(false);
     const [selectedPractice, setSelectedPractice] = useState("");
+    const [fullName, setFullName] = useState("");
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
+    const [submitting, setSubmitting] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
     const practiceOptions = [
@@ -42,6 +47,55 @@ export function Contact() {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, []);
+
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        if (!selectedPractice) {
+            toast.error("Please select a legal service first.");
+            return;
+        }
+
+        setSubmitting(true);
+
+        try {
+            const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    name: fullName,
+                    email,
+                    practice: selectedPractice,
+                    message,
+                }),
+            });
+
+            const payload = await response.json().catch(() => ({}));
+
+            if (!response.ok) {
+                toast.error(payload?.error || "Failed to send inquiry.");
+                return;
+            }
+
+            toast.success("Inquiry sent successfully.");
+
+            if (payload?.emailSent === false) {
+                toast.warning("Inquiry saved, but email notification is not configured.");
+            }
+
+            setFullName("");
+            setEmail("");
+            setMessage("");
+            setSelectedPractice("");
+        } catch (error) {
+            console.error("Failed to submit contact inquiry", error);
+            toast.error("Failed to send inquiry.");
+        } finally {
+            setSubmitting(false);
+        }
+    };
 
     return (
         <div id="contact" className="pt-24 md:pt-40 pb-20 md:pb-24 bg-black text-white">
@@ -116,7 +170,7 @@ export function Contact() {
                     {/* Form */}
                     <AnimateIn from="right" delay={0.8} className="bg-zinc-950 border border-white/5 p-8 md:p-12 lg:p-16 shadow-2xl relative">
                         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-                        <form className="space-y-10 md:space-y-12" onSubmit={(e) => e.preventDefault()}>
+                        <form className="space-y-10 md:space-y-12" onSubmit={handleSubmit}>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
                                 <div className="space-y-4">
                                     <label className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-black text-zinc-500">{t('form.identity')}</label>
@@ -124,6 +178,9 @@ export function Contact() {
                                         type="text"
                                         placeholder={t('form.name_placeholder')}
                                         className="w-full bg-transparent border-b border-white/10 px-0 py-3 md:py-4 focus:outline-none focus:border-white transition-all text-xs md:text-sm tracking-widest placeholder:text-zinc-800"
+                                        value={fullName}
+                                        onChange={(event) => setFullName(event.target.value)}
+                                        required
                                     />
                                 </div>
                                 <div className="space-y-4">
@@ -132,6 +189,9 @@ export function Contact() {
                                         type="email"
                                         placeholder={t('form.email_placeholder')}
                                         className="w-full bg-transparent border-b border-white/10 px-0 py-3 md:py-4 focus:outline-none focus:border-white transition-all text-xs md:text-sm tracking-widest placeholder:text-zinc-800"
+                                        value={email}
+                                        onChange={(event) => setEmail(event.target.value)}
+                                        required
                                     />
                                 </div>
                             </div>
@@ -179,13 +239,17 @@ export function Contact() {
                                     rows={4}
                                     placeholder={t('form.brief_placeholder')}
                                     className="w-full bg-transparent border-b border-white/10 px-0 py-3 md:py-4 focus:outline-none focus:border-white transition-all text-xs md:text-sm tracking-widest placeholder:text-zinc-800 resize-none"
+                                    value={message}
+                                    onChange={(event) => setMessage(event.target.value)}
+                                    required
                                 ></textarea>
                             </div>
                             <button
                                 type="submit"
+                                disabled={submitting}
                                 className="w-full py-5 md:py-6 bg-white text-black uppercase tracking-[0.3em] md:tracking-[0.4em] font-black text-[10px] md:text-xs flex items-center justify-center space-x-4 hover:bg-zinc-200 transition-all group"
                             >
-                                <span>{t('form.submit')}</span>
+                                <span>{submitting ? "Sending..." : t('form.submit')}</span>
                                 <Send size={14} className="group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" />
                             </button>
                         </form>
