@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
@@ -6,6 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { AnimateIn } from "@/components/AnimateIn";
 import { AnimateText } from "@/components/AnimateText";
 import { prisma } from "@/lib/prisma";
+import type { Team } from "@prisma/client";
 import { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
@@ -45,7 +45,7 @@ function getSafeTeamImageSrc(imageUrl?: string | null) {
 }
 
 export default async function OurTeamPage() {
-    let teamMembers: Awaited<ReturnType<typeof prisma.team.findMany>> = [];
+    let teamMembers: Team[] = [];
 
     try {
         teamMembers = await prisma.team.findMany({
@@ -76,7 +76,7 @@ export default async function OurTeamPage() {
 
                 <div className="container mx-auto px-4 md:px-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 md:gap-y-24 gap-x-12 xl:gap-x-16">
-                        {teamMembers.map((member, index) => (
+                        {teamMembers.map((member: Team, index: number) => (
                             <AnimateIn key={member.id} from="bottom" delay={index * 0.15} duration={0.8} className="group border-l border-white/10 pl-6 md:pl-12 relative">
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12">
                                     <div className="aspect-[3/4] overflow-hidden bg-zinc-900 border border-white/10 grayscale group-hover:grayscale-0 transition-all duration-700 relative">
