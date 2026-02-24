@@ -1,50 +1,69 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Search, ArrowUpRight, TrendingUp, Globe, Landmark } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import { Header } from "@/components/layout/Header";
+import { toast } from "sonner";
 
-export const INSIGHTS_DATA = [
-    {
-        id: '1',
-        slug: 'north-bali-airport-infrastructure-shift',
-        category: 'Bali Investment Watch',
-        title: 'North Bali Airport & The Infrastructure Shift: Legal Real Estate Impacts',
-        date: 'Jan 24, 2024',
-        excerpt: 'Analyzing the strategic legal moves required for investors as North Bali prepares for major infrastructure overhauls and new zoning laws.',
-        image: 'https://images.unsplash.com/photo-1540331547168-8b63109225b7?auto=format&fit=crop&q=80&w=800'
-    },
-    {
-        id: '2',
-        slug: 'digital-nomad-visas-remote-work-taxation',
-        category: 'Law Update',
-        title: 'Digital Nomad Visas & Remote Work Taxation in Indonesia',
-        date: 'Jan 15, 2024',
-        excerpt: 'The complete legal breakdown of the latest stay-permit regulations for the modern global professional residing in Bali.',
-        image: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&q=80&w=800'
-    },
-    {
-        id: '3',
-        slug: 'fdi-trends-2024-bali-luxury-resort-capital',
-        category: 'Bali Investment Watch',
-        title: 'FDI Trends 2024: Why Bali Remains the Luxury Resort Capital',
-        date: 'Dec 20, 2023',
-        excerpt: 'Expert commentary on Foreign Direct Investment flows and the evolving regulatory framework for international hotel chains.',
-        image: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&q=80&w=800'
-    },
-    {
-        id: '4',
-        slug: 'intellectual-property-brand-protection',
-        category: 'Case Study',
-        title: 'Intellectual Property & Brand Protection for Bali Lifestyle Brands',
-        date: 'Nov 28, 2023',
-        excerpt: 'How LACO secured global trademark rights for a growing Bali-based international fashion house.',
-        image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=800'
-    }
-];
+type InsightNewsItem = {
+    id: string;
+    slug: string;
+    category: string;
+    title: string;
+    imageUrl: string;
+    content: string;
+    publishedAt: string;
+};
+
+function stripHtml(html: string) {
+    return html.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+}
+
+function toExcerpt(html: string, max = 170) {
+    const text = stripHtml(html);
+    return text.length > max ? `${text.slice(0, max)}...` : text;
+}
 
 export function InsightList() {
+    const [loading, setLoading] = useState(true);
+    const [search, setSearch] = useState("");
+    const [insights, setInsights] = useState<InsightNewsItem[]>([]);
+
+    useEffect(() => {
+        const fetchInsights = async () => {
+            try {
+                const res = await fetch("/api/news", { cache: "no-store" });
+
+                if (!res.ok) {
+                    const payload = await res.json().catch(() => ({}));
+                    toast.error(payload?.error || "Failed to fetch insights");
+                    return;
+                }
+
+                const data = await res.json();
+                setInsights(Array.isArray(data) ? data : []);
+            } catch (error) {
+                console.error("Failed to fetch insights", error);
+                toast.error("Failed to fetch insights");
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchInsights();
+    }, []);
+
+    const filteredInsights = useMemo(() => {
+        if (!search.trim()) return insights;
+
+        const keyword = search.toLowerCase();
+        return insights.filter((item) => {
+            const haystack = `${item.title} ${item.category} ${stripHtml(item.content)}`.toLowerCase();
+            return haystack.includes(keyword);
+        });
+    }, [insights, search]);
+
     return (
         <main className="bg-black text-white min-h-screen selection:bg-white selection:text-black">
             <Header />
@@ -55,7 +74,7 @@ export function InsightList() {
                             <span className="text-[10px] tracking-[0.5em] uppercase text-zinc-500 mb-6 block font-bold">Thought Leadership</span>
                             <h1 className="text-6xl md:text-8xl font-serif mb-8 italic leading-none tracking-tighter text-balance">Insights & <br />Legal Briefs.</h1>
                             <p className="text-xl text-zinc-400 font-light leading-relaxed max-w-xl">
-                                Critical analysis of the legal forces shaping Bali's economy and the global business environment.
+                                Critical analysis of the legal forces shaping Bali&apos;s economy and the global business environment.
                             </p>
                         </div>
                         <div className="w-full md:w-auto">
@@ -63,6 +82,8 @@ export function InsightList() {
                                 <input
                                     type="text"
                                     placeholder="Search by keyword..."
+                                    value={search}
+                                    onChange={(e) => setSearch(e.target.value)}
                                     className="bg-transparent text-white px-0 py-2 text-sm focus:outline-none w-full md:w-80 tracking-widest uppercase placeholder:text-zinc-600"
                                 />
                                 <Search className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500" />
@@ -96,22 +117,32 @@ export function InsightList() {
 
                     {/* Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-24">
-                        {INSIGHTS_DATA.map((item) => (
+                        {loading ? (
+                            <div className="text-zinc-400 text-sm">Loading insights...</div>
+                        ) : filteredInsights.length === 0 ? (
+                            <div className="text-zinc-400 text-sm">No insights found.</div>
+                        ) : filteredInsights.map((item) => (
                             <article key={item.id} className="group cursor-pointer">
                                 <div className="aspect-[16/10] bg-zinc-900 mb-10 overflow-hidden border border-white/5 relative">
-                                    <img src={item.image} alt={item.title} className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 opacity-40 group-hover:opacity-100" />
+                                    <img src={item.imageUrl} alt={item.title} className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 opacity-40 group-hover:opacity-100" />
                                     <div className="absolute top-6 left-6">
                                         <span className="text-[10px] tracking-widest uppercase bg-black/80 backdrop-blur-md text-white px-4 py-2 border border-white/10 font-black">{item.category}</span>
                                     </div>
                                 </div>
                                 <div className="flex items-center justify-between mb-6">
-                                    <span className="text-[10px] text-zinc-500 tracking-[0.2em] font-bold uppercase">{item.date}</span>
+                                    <span className="text-[10px] text-zinc-500 tracking-[0.2em] font-bold uppercase">
+                                        {new Date(item.publishedAt).toLocaleDateString("en-US", {
+                                            month: "short",
+                                            day: "2-digit",
+                                            year: "numeric",
+                                        })}
+                                    </span>
                                     <div className="h-px bg-white/10 flex-grow mx-6"></div>
                                     <ArrowUpRight size={16} className="text-zinc-500 group-hover:text-white transition-colors" />
                                 </div>
                                 <h3 className="text-3xl font-serif mb-6 group-hover:text-zinc-300 transition-colors italic leading-tight text-balance">{item.title}</h3>
                                 <p className="text-zinc-500 font-light leading-relaxed mb-8 text-lg text-balance">
-                                    {item.excerpt}
+                                    {toExcerpt(item.content)}
                                 </p>
                                 <Link href={`/insight/${item.slug}`} className="text-[10px] font-black uppercase tracking-[0.3em] border-b-2 border-white/10 pb-2 group-hover:border-white transition-all inline-block">
                                     Read Publication

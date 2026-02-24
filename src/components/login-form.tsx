@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { Leaf } from "lucide-react";
+import { toast } from "sonner";
+import { Link } from "@/i18n/routing";
 
 export function LoginForm({
   className,
@@ -38,12 +40,15 @@ export function LoginForm({
 
       if (res?.error) {
         setError("Invalid email or password");
+        toast.error("Invalid email or password");
       } else {
+        toast.success("Login successful");
         router.push("/dashboard");
         router.refresh();
       }
-    } catch (err) {
+    } catch {
       setError("An unexpected error occurred");
+      toast.error("An unexpected error occurred");
     } finally {
       setLoading(false);
     }
@@ -115,14 +120,14 @@ export function LoginForm({
             <div className="absolute bottom-8 left-8 right-8 text-white">
               <p className="text-sm font-serif italic text-zinc-300 gap-1 flex flex-col">
                 <span className="font-sans text-xs tracking-widest uppercase opacity-50">Laco & Associates</span>
-                "We provide unyielding advocacy and structural integrity for our clients worldwide."
+                &quot;We provide unyielding advocacy and structural integrity for our clients worldwide.&quot;
               </p>
             </div>
             {/* Added a subtle back link as overlay */}
             <div className="absolute top-6 right-6">
-              <a href="/" className="text-[10px] text-zinc-400 hover:text-white transition-colors uppercase tracking-widest flex items-center gap-2">
+              <Link href="/" className="text-[10px] text-zinc-400 hover:text-white transition-colors uppercase tracking-widest flex items-center gap-2">
                 Return Home &rarr;
-              </a>
+              </Link>
             </div>
           </div>
         </CardContent>

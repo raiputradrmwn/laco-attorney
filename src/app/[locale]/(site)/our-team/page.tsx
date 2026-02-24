@@ -5,67 +5,28 @@ import { ArrowUpRight } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { AnimateIn } from "@/components/AnimateIn";
 import { AnimateText } from "@/components/AnimateText";
+import { prisma } from "@/lib/prisma";
+import { Metadata } from "next";
 
-const TEAM_MEMBERS = [
-    {
-        id: "1",
-        name: "Lilo Agung Crisna Budi, S.H., M.H.",
-        position: "Founder & Managing Partner",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800",
-        specialization: "High-Stakes Litigation",
-        bio: "Renowned for his indomitable resilience in the courtroom and strategic foresight in corporate restructuring. A visionary leader dedicated to legal integrity."
+export const metadata: Metadata = {
+    title: "Our Team | LACO Attorneys",
+    description: "Meet the elite legal minds of LACO Attorneys — founders, partners, and associates specializing in litigation, aviation law, capital markets, and international affairs across Indonesia.",
+    keywords: ["pengacara Indonesia", "LACO attorney team", "lawyer Bali", "aviation lawyer Indonesia", "corporate attorney", "tim pengacara"],
+    openGraph: {
+        title: "Our Team | LACO Attorneys",
+        description: "Meet the skilled attorneys of LACO — Indonesia's premier legal counsel across Denpasar, Jakarta, and Yogyakarta.",
+        url: "https://lacolawyer.com/our-team",
+        siteName: "LACO Attorneys",
+        type: "website",
     },
-    {
-        id: "2",
-        name: "Rosanno Tito Atmaja, S.H., M.H.",
-        position: "Partner (Aviation)",
-        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=800",
-        specialization: "Aviation Casualty Defense",
-        bio: "One of Indonesia’s foremost experts in aeronautical litigation and international aviation conventions."
-    },
-    {
-        id: "3",
-        name: "Reinhard R Silaban, S.H.",
-        position: "Head of Jakarta Branch",
-        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=800",
-        specialization: "Capital Markets",
-        bio: "Commanding our capital city presence with a focus on institutional legal frameworks and multi-national advisory."
-    },
-    {
-        id: "4",
-        name: "Andita Suharto, S.H., M.Kn.",
-        position: "Head of Yogyakarta Branch",
-        image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=800",
-        specialization: "Notarial Architecture",
-        bio: "Expert in fiduciaries and authentication, bridging corporate intent with formal state recognition."
-    },
-    {
-        id: "5",
-        name: "Dwiki Mahadipta, S.H.",
-        position: "Senior Associate",
-        image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800",
-        specialization: "Dispute Resolution",
-        bio: "A relentless tactician in commercial conflicts, known for surgical negotiation and courtroom resilience."
-    },
-    {
-        id: "6",
-        name: "Hana Daniella Asyer, S.H.",
-        position: "Associate",
-        image: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80&w=800",
-        specialization: "Private Wealth & IP",
-        bio: "Dedicated to the discreet protection of creative assets and family legacies in a global context."
-    },
-    {
-        id: "7",
-        name: "Catherine Widjaja, LL.M.",
-        position: "Counsel",
-        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800",
-        specialization: "International Affairs",
-        bio: "Bridging global investors and Indonesian regulatory landscapes with precision and scholarship."
-    }
-];
+    alternates: { canonical: "https://lacolawyer.com/our-team" },
+};
 
-export default function OurTeamPage() {
+export default async function OurTeamPage() {
+    const teamMembers = await prisma.team.findMany({
+        orderBy: { createdAt: 'asc' }
+    });
+
     return (
         <main className="bg-black text-white min-h-screen selection:bg-white selection:text-black">
             <Header />
@@ -87,12 +48,12 @@ export default function OurTeamPage() {
 
                 <div className="container mx-auto px-4 md:px-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 md:gap-y-24 gap-x-12 xl:gap-x-16">
-                        {TEAM_MEMBERS.map((member, index) => (
+                        {teamMembers.map((member, index) => (
                             <AnimateIn key={member.id} from="bottom" delay={index * 0.15} duration={0.8} className="group border-l border-white/10 pl-6 md:pl-12 relative">
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12">
                                     <div className="aspect-[3/4] overflow-hidden bg-zinc-900 border border-white/10 grayscale group-hover:grayscale-0 transition-all duration-700 relative">
                                         <Image
-                                            src={member.image}
+                                            src={member.imageUrl || "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=800"}
                                             alt={member.name}
                                             fill
                                             className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-60 group-hover:opacity-100"
@@ -101,25 +62,30 @@ export default function OurTeamPage() {
                                     <div className="flex flex-col justify-center text-center sm:text-left">
                                         <div className="mb-6 md:mb-8">
                                             <h3 className="text-xl md:text-2xl font-serif font-bold tracking-tight mb-1 md:mb-2 italic">{member.name}</h3>
-                                            <p className="text-[9px] md:text-[10px] tracking-[0.2em] md:tracking-[0.3em] uppercase text-zinc-500 font-black">{member.position}</p>
+                                            <p className="text-[9px] md:text-[10px] tracking-[0.2em] md:tracking-[0.3em] uppercase text-zinc-500 font-black">{member.role}</p>
                                         </div>
-                                        <p className="text-zinc-400 font-light text-xs md:text-sm leading-relaxed mb-6 md:mb-8 border-l-0 sm:border-l border-white/20 sm:pl-6 italic">
-                                            &quot;{member.bio}&quot;
-                                        </p>
+                                        <div
+                                            className="text-zinc-400 font-light text-xs md:text-sm leading-relaxed mb-6 md:mb-8 border-l-0 sm:border-l border-white/20 sm:pl-6 italic prose prose-invert prose-sm max-w-none"
+                                            dangerouslySetInnerHTML={{ __html: member.bio || "" }}
+                                        />
                                         <div className="space-y-4">
                                             <div className="flex flex-col sm:flex-row items-center sm:items-start sm:space-x-2 space-y-1 sm:space-y-0">
                                                 <span className="text-[9px] md:text-[10px] tracking-widest uppercase font-black text-white">Focus:</span>
-                                                <span className="text-[9px] md:text-[10px] tracking-widest uppercase text-zinc-500">{member.specialization}</span>
+                                                <span className="text-[9px] md:text-[10px] tracking-widest uppercase text-zinc-500">{member.specialization || "General Practice"}</span>
                                             </div>
                                             <div className="flex items-center justify-center sm:justify-start space-x-6 pt-4 border-t border-white/5">
-                                                <Link href="#" className="flex items-center space-x-2 text-[9px] md:text-[10px] tracking-widest font-black uppercase text-zinc-400 hover:text-white transition-colors">
-                                                    <span>LinkedIn</span>
-                                                    <ArrowUpRight size={12} />
-                                                </Link>
-                                                <Link href="#" className="flex items-center space-x-2 text-[9px] md:text-[10px] tracking-widest font-black uppercase text-zinc-400 hover:text-white transition-colors">
-                                                    <span>Email</span>
-                                                    <ArrowUpRight size={12} />
-                                                </Link>
+                                                {member.linkedin ? (
+                                                    <Link href={member.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-[9px] md:text-[10px] tracking-widest font-black uppercase text-zinc-400 hover:text-white transition-colors">
+                                                        <span>LinkedIn</span>
+                                                        <ArrowUpRight size={12} />
+                                                    </Link>
+                                                ) : null}
+                                                {member.email ? (
+                                                    <Link href={`mailto:${member.email}`} className="flex items-center space-x-2 text-[9px] md:text-[10px] tracking-widest font-black uppercase text-zinc-400 hover:text-white transition-colors">
+                                                        <span>Email</span>
+                                                        <ArrowUpRight size={12} />
+                                                    </Link>
+                                                ) : null}
                                             </div>
                                         </div>
                                     </div>

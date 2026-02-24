@@ -1,18 +1,13 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Target, Zap, ShieldAlert, Scale, LucideIcon } from "lucide-react";
+import { Target, Zap, ShieldAlert, Scale } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { AnimateText } from "@/components/AnimateText";
 import { useTranslations } from "next-intl";
 
-interface PillarProps {
-    icon: LucideIcon;
-    title: string;
-    description: string;
-}
+
 
 export default function WhyLacoPage() {
     const t = useTranslations('WhyLaco');

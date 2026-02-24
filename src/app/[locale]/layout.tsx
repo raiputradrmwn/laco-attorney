@@ -2,7 +2,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
-import { Footer } from "@/components/layout/Footer";
+import { Toaster } from "@/components/ui/sonner";
 import { Playfair_Display, Inter } from "next/font/google"; // Moved fonts here
 import "../globals.css"; // Adjusted path
 
@@ -29,9 +29,12 @@ export default async function LocaleLayout({
     params: Promise<{ locale: string }>;
 }) {
     const { locale } = await params;
+    const isSupportedLocale = routing.locales.includes(
+        locale as (typeof routing.locales)[number]
+    );
 
     // Ensure that the incoming `locale` is valid
-    if (!routing.locales.includes(locale as any)) {
+    if (!isSupportedLocale) {
         notFound();
     }
 
@@ -46,6 +49,7 @@ export default async function LocaleLayout({
                     <div className="flex min-h-screen flex-col">
                         <main className="flex-1">{children}</main>
                     </div>
+                    <Toaster richColors position="top-right" />
                 </NextIntlClientProvider>
             </body>
         </html>
