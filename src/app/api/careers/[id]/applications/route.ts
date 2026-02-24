@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { mkdir, writeFile } from "fs/promises";
 import path from "path";
+import { uploadFileToImageKit } from "@/lib/imagekit";
 
 const MAX_CV_SIZE = 5 * 1024 * 1024; // 5MB
 const ALLOWED_MIME_TYPES = new Set([
@@ -122,19 +122,16 @@ export async function POST(
       );
     }
 
-    const uploadDir = path.join(process.cwd(), "public", "uploads", "cv");
-    await mkdir(uploadDir, { recursive: true });
-
     const safeOriginalName = sanitizeFileName(cvFile.name || "cv");
     const timeTag = Date.now();
     const uniqueName = `${timeTag}-${safeOriginalName}`;
-    const filePath = path.join(uploadDir, uniqueName);
-
-    const bytes = await cvFile.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-    await writeFile(filePath, buffer);
-
-    const cvUrl = `/uploads/cv/${uniqueName}`;
+    const uploaded = await uploadFileToImageKit({
+      file: cvFile,
+      fileName: uniqueName,
+      folder: "/laco/cv",
+      tags: ["career", "cv"],
+    });
+    const cvUrl = uploaded.url;
     const application = await prisma.careerApplication.create({
       data: {
         careerId: id,

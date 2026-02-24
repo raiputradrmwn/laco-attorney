@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { mkdir, writeFile } from "fs/promises";
-import path from "path";
+import { uploadFileToImageKit } from "@/lib/imagekit";
 
 const DEFAULT_NEWS_IMAGE =
   "/uploads/news/default-news.jpg";
@@ -68,17 +67,17 @@ async function saveNewsImage(imageFile: File) {
     throw new Error("Image size must be between 1 byte and 5MB");
   }
 
-  const uploadDir = path.join(process.cwd(), "public", "uploads", "news");
-  await mkdir(uploadDir, { recursive: true });
-
   const safeOriginalName = sanitizeFileName(imageFile.name || "news-image");
-  const uniqueName = `${Date.now()}-${safeOriginalName}`;
-  const outputPath = path.join(uploadDir, uniqueName);
+  const uniqueName = `${Date.now()}-${safeOriginalName}`.replace(/\s+/g, "-");
 
-  const bytes = await imageFile.arrayBuffer();
-  await writeFile(outputPath, Buffer.from(bytes));
+  const uploaded = await uploadFileToImageKit({
+    file: imageFile,
+    fileName: uniqueName,
+    folder: "/laco/news",
+    tags: ["news"],
+  });
 
-  return `/uploads/news/${uniqueName}`;
+  return uploaded.url;
 }
 
 async function parsePayload(request: Request): Promise<ParsedNewsPayload> {
