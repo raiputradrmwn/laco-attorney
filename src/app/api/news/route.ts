@@ -1,9 +1,18 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { Prisma } from "@prisma/client";
+import { mkdir, writeFile } from "fs/promises";
+import path from "path";
 
 const DEFAULT_NEWS_IMAGE =
-  "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1600";
+  "/uploads/news/default-news.jpg";
+const MAX_IMAGE_SIZE = 5 * 1024 * 1024; // 5MB
+const ALLOWED_IMAGE_TYPES = new Set([
+  "image/jpeg",
+  "image/jpg",
+  "image/png",
+  "image/webp",
+]);
 
 function createSlug(input: string) {
   return input
@@ -29,6 +38,69 @@ async function createUniqueSlug(title: string, requestedSlug?: string) {
   }
 }
 
+type ParsedNewsPayload = {
+  title: string;
+  category: string;
+  slug?: string;
+  content: string;
+  imageUrl?: string;
+  imageFile?: File | null;
+};
+
+function sanitizeFileName(fileName: string) {
+  return fileName.replace(/[^a-zA-Z0-9._-]/g, "-").replace(/-+/g, "-");
+}
+
+async function saveNewsImage(imageFile: File) {
+  if (!ALLOWED_IMAGE_TYPES.has(imageFile.type)) {
+    throw new Error("Only JPG, PNG, or WEBP image files are allowed");
+  }
+
+  if (imageFile.size === 0 || imageFile.size > MAX_IMAGE_SIZE) {
+    throw new Error("Image size must be between 1 byte and 5MB");
+  }
+
+  const uploadDir = path.join(process.cwd(), "public", "uploads", "news");
+  await mkdir(uploadDir, { recursive: true });
+
+  const safeOriginalName = sanitizeFileName(imageFile.name || "news-image");
+  const uniqueName = `${Date.now()}-${safeOriginalName}`;
+  const outputPath = path.join(uploadDir, uniqueName);
+
+  const bytes = await imageFile.arrayBuffer();
+  await writeFile(outputPath, Buffer.from(bytes));
+
+  return `/uploads/news/${uniqueName}`;
+}
+
+async function parsePayload(request: Request): Promise<ParsedNewsPayload> {
+  const contentType = request.headers.get("content-type") || "";
+
+  if (contentType.includes("application/json")) {
+    const body = await request.json();
+    return {
+      title: String(body.title || "").trim(),
+      category: String(body.category || "General").trim(),
+      slug: body.slug ? String(body.slug).trim() : undefined,
+      content: String(body.content || ""),
+      imageUrl: body.imageUrl ? String(body.imageUrl).trim() : undefined,
+      imageFile: null,
+    };
+  }
+
+  const form = await request.formData();
+  const imageCandidate = form.get("image");
+
+  return {
+    title: String(form.get("title") || "").trim(),
+    category: String(form.get("category") || "General").trim(),
+    slug: form.get("slug") ? String(form.get("slug")).trim() : undefined,
+    content: String(form.get("content") || ""),
+    imageUrl: form.get("imageUrl") ? String(form.get("imageUrl")).trim() : undefined,
+    imageFile: imageCandidate instanceof File ? imageCandidate : null,
+  };
+}
+
 // GET all news
 export async function GET() {
   try {
@@ -44,7 +116,7 @@ export async function GET() {
 // POST create news
 export async function POST(request: Request) {
   try {
-    const { title, category, slug, imageUrl, content } = await request.json();
+    const { title, category, slug, imageUrl, content, imageFile } = await parsePayload(request);
 
     if (!title || !content) {
       return NextResponse.json(
@@ -52,14 +124,21 @@ export async function POST(request: Request) {
         { status: 400 }
       );
     }
+    if (!imageFile && !imageUrl) {
+      return NextResponse.json(
+        { error: "Cover image is required" },
+        { status: 400 }
+      );
+    }
 
     const uniqueSlug = await createUniqueSlug(title, slug);
+    const savedImageUrl = imageFile ? await saveNewsImage(imageFile) : imageUrl || DEFAULT_NEWS_IMAGE;
     const newsItem = await prisma.news.create({
       data: {
         title,
         category: category || "General",
         slug: uniqueSlug,
-        imageUrl: imageUrl || DEFAULT_NEWS_IMAGE,
+        imageUrl: savedImageUrl,
         content,
       },
     });
@@ -74,6 +153,10 @@ export async function POST(request: Request) {
         { error: "News slug already exists, please try another title" },
         { status: 409 }
       );
+    }
+
+    if (error instanceof Error) {
+      return NextResponse.json({ error: error.message }, { status: 400 });
     }
 
     return NextResponse.json({ error: "Failed to create news" }, { status: 500 });

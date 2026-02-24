@@ -26,9 +26,20 @@ model News {
   slug        String   @unique
   imageUrl    String
   content     String
+  views       NewsView[]
   publishedAt DateTime @default(now())
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+}
+
+model NewsView {
+  id       String   @id @default(cuid())
+  newsId   String
+  news     News     @relation(fields: [newsId], references: [id], onDelete: Cascade)
+  viewedAt DateTime @default(now())
+
+  @@index([newsId, viewedAt])
+  @@index([viewedAt])
 }
 
 model ContactInquiry {
@@ -41,13 +52,29 @@ model ContactInquiry {
 }
 
 model Career {
+  id           String              @id @default(cuid())
+  title        String
+  department   String?
+  location     String
+  description  String?
+  isActive     Boolean             @default(true)
+  applications CareerApplication[]
+  createdAt    DateTime            @default(now())
+  updatedAt    DateTime            @updatedAt
+}
+
+model CareerApplication {
   id          String   @id @default(cuid())
-  title       String
-  location    String
-  description String?
-  isActive    Boolean  @default(true)
+  careerId    String
+  career      Career   @relation(fields: [careerId], references: [id], onDelete: Cascade)
+  fullName    String
+  email       String
+  phone       String?
+  coverLetter String?
+  cvUrl       String
+  cvFileName  String
+  status      String   @default("NEW")
   createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
 }
 
 model User {

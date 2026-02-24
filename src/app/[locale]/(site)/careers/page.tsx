@@ -1,9 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
-import { ArrowRight, Star, Users, Zap, Award } from 'lucide-react';
+import { Star, Users, Zap, Award } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Header } from '@/components/layout/Header';
-import { Link } from '@/i18n/routing';
+import { CareersOpenings } from '@/components/careers/CareersOpenings';
 
 export default function CareersPage() {
     const t = useTranslations('Careers');
@@ -28,21 +28,6 @@ export default function CareersPage() {
             icon: Award,
             title: t('features.resilience.title'),
             desc: t('features.resilience.desc')
-        }
-    ];
-
-    const roles = [
-        {
-            role: t('roles.1.role'),
-            location: t('roles.1.location')
-        },
-        {
-            role: t('roles.2.role'),
-            location: t('roles.2.location')
-        },
-        {
-            role: t('roles.3.role'),
-            location: t('roles.3.location')
         }
     ];
 
@@ -86,27 +71,7 @@ export default function CareersPage() {
                         </div>
                     </section>
 
-                    <section className="bg-zinc-950 border border-white/5 p-10 md:p-24 shadow-2xl relative overflow-hidden">
-                        <div className="max-w-3xl relative z-10">
-                            <h2 className="text-4xl font-serif italic mb-12">{t('openPositions')}</h2>
-                            <div className="space-y-6">
-                                {roles.map((pos, i) => (
-                                    <div key={i} className="group flex items-center justify-between py-6 border-b border-white/5 cursor-pointer hover:border-white transition-all">
-                                        <div>
-                                            <h3 className="text-xl font-serif italic group-hover:pl-4 transition-all">{pos.role}</h3>
-                                            <p className="text-[10px] tracking-widest uppercase text-zinc-600 mt-2">{pos.location}</p>
-                                        </div>
-                                        <ArrowRight className="w-5 h-5 text-zinc-700 group-hover:text-white transition-colors" />
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                        <div className="mt-20 text-center lg:text-left">
-                            <Link href="/contact" className="inline-block px-16 py-6 bg-white text-black uppercase tracking-[0.3em] text-xs font-black hover:bg-zinc-200 transition-all">
-                                {t('apply')}
-                            </Link>
-                        </div>
-                    </section>
+                    <CareersOpenings />
                 </div>
             </div>
         </main>

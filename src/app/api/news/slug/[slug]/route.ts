@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { randomUUID } from "crypto";
 
 export async function GET(
   _request: Request,
@@ -13,6 +14,15 @@ export async function GET(
 
     if (!news) {
       return NextResponse.json({ error: "News not found" }, { status: 404 });
+    }
+
+    try {
+      await prisma.$executeRaw`
+        INSERT INTO "NewsView" ("id", "newsId", "viewedAt")
+        VALUES (${randomUUID()}, ${news.id}, NOW())
+      `;
+    } catch (error) {
+      console.error("Failed to track news view", error);
     }
 
     return NextResponse.json(news, { status: 200 });

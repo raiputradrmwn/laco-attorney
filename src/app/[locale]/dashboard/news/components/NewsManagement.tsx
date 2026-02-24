@@ -52,6 +52,7 @@ export function NewsManagement() {
     const [title, setTitle] = useState("");
     const [category, setCategory] = useState("");
     const [imageUrl, setImageUrl] = useState("");
+    const [imageFile, setImageFile] = useState<File | null>(null);
     const [content, setContent] = useState("");
     const [loading, setLoading] = useState(false);
     const [fetching, setFetching] = useState(true);
@@ -88,6 +89,7 @@ export function NewsManagement() {
         setTitle("");
         setCategory("");
         setImageUrl("");
+        setImageFile(null);
         setContent("");
     };
 
@@ -104,26 +106,35 @@ export function NewsManagement() {
         setTitle(item.title);
         setCategory(item.category);
         setImageUrl(item.imageUrl || "");
+        setImageFile(null);
         setContent(item.content);
         setOpen(true);
     };
 
     const handleSave = async () => {
+        if (!editingId && !imageFile) {
+            toast.error("Cover image is required for new article");
+            return;
+        }
+
         setLoading(true);
 
         try {
             const endpoint = editingId ? `/api/news/${editingId}` : "/api/news";
             const method = editingId ? "PUT" : "POST";
+            const formData = new FormData();
+            formData.append("title", title.trim());
+            formData.append("category", category.trim());
+            formData.append("content", content);
+            formData.append("imageUrl", imageUrl);
+
+            if (imageFile) {
+                formData.append("image", imageFile);
+            }
 
             const res = await fetch(endpoint, {
                 method,
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    title: title.trim(),
-                    category: category.trim(),
-                    imageUrl: imageUrl.trim(),
-                    content,
-                }),
+                body: formData,
             });
 
             if (!res.ok) {
@@ -238,16 +249,23 @@ export function NewsManagement() {
                                     />
                                 </div>
                                 <div className="grid grid-cols-4 items-center gap-4">
-                                    <Label htmlFor="imageUrl" className="text-right text-xs uppercase tracking-widest text-zinc-400">
-                                        Cover Image URL
+                                    <Label htmlFor="image" className="text-right text-xs uppercase tracking-widest text-zinc-400">
+                                        Cover Image
                                     </Label>
-                                    <Input
-                                        id="imageUrl"
-                                        value={imageUrl}
-                                        onChange={(e) => setImageUrl(e.target.value)}
-                                        className="col-span-3 bg-zinc-950 border-white/10 text-white rounded-none focus-visible:ring-1 focus-visible:ring-white/50"
-                                        placeholder="e.g. https://images.unsplash.com/..."
-                                    />
+                                    <div className="col-span-3 space-y-2">
+                                        <Input
+                                            id="image"
+                                            type="file"
+                                            accept=".jpg,.jpeg,.png,.webp"
+                                            onChange={(e) => setImageFile(e.target.files?.[0] || null)}
+                                            className="bg-zinc-950 border-white/10 text-white rounded-none focus-visible:ring-1 focus-visible:ring-white/50"
+                                        />
+                                        {imageUrl ? (
+                                            <p className="text-[10px] text-zinc-500">
+                                                Current: {imageUrl}
+                                            </p>
+                                        ) : null}
+                                    </div>
                                 </div>
                                 <div className="grid grid-cols-4 items-start gap-4">
                                     <Label htmlFor="content" className="text-right text-xs uppercase tracking-widest text-zinc-400 pt-3">

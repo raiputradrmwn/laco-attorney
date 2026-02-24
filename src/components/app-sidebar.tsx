@@ -1,21 +1,10 @@
-"use client"
-
 import * as React from "react"
-import {
-  IconDashboard,
-  IconFileDescription,
-  IconFileWord,
-  IconHelp,
-  IconInnerShadowTop,
-  IconListDetails,
-  IconReport,
-  IconSettings,
-  IconUsers,
-} from "@tabler/icons-react"
+import { IconInnerShadowTop } from "@tabler/icons-react"
+import { getServerSession } from "next-auth"
 
 import { Link } from "@/i18n/routing"
-import { NavMain } from "@/components/nav-main"
-import { NavSecondary } from "@/components/nav-secondary"
+import { authOptions } from "@/lib/auth"
+import { NavMain, type NavMainItem } from "@/components/nav-main"
 import { NavUser } from "@/components/nav-user"
 import {
   Sidebar,
@@ -27,54 +16,41 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 
-const data = {
-  user: {
-    name: "Admin",
-    email: "admin@lacolawyer.com",
-    avatar: "/placeholder-avatar.jpg",
-  },
+const data: { navMain: NavMainItem[] } = {
   navMain: [
     {
       title: "Dashboard",
       url: "/dashboard",
-      icon: IconDashboard,
+      icon: "dashboard",
     },
     {
       title: "Team",
       url: "/dashboard/team",
-      icon: IconUsers,
+      icon: "team",
     },
     {
       title: "News & Insights",
       url: "/dashboard/news",
-      icon: IconFileWord,
+      icon: "news",
     },
     {
       title: "Careers",
       url: "/dashboard/careers",
-      icon: IconListDetails,
+      icon: "careers",
     },
     {
       title: "Inquiries",
       url: "/dashboard/inquiries",
-      icon: IconReport,
-    },
-  ],
-  navSecondary: [
-    {
-      title: "Settings",
-      url: "/dashboard/settings",
-      icon: IconSettings,
-    },
-    {
-      title: "Help",
-      url: "#",
-      icon: IconHelp,
+      icon: "inquiries",
     },
   ],
 }
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export async function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const session = await getServerSession(authOptions)
+  const email = session?.user?.email ?? "admin@lacolawyer.com"
+  const name = session?.user?.name || email.split("@")[0] || "Admin"
+
   return (
     <Sidebar collapsible="offcanvas" {...props}>
       <SidebarHeader>
@@ -94,10 +70,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <NavUser
+          user={{
+            name,
+            email,
+            avatar: "/placeholder-avatar.jpg",
+          }}
+        />
       </SidebarFooter>
     </Sidebar>
   )
