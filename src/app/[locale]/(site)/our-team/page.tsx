@@ -53,7 +53,7 @@ export default async function OurTeamPage() {
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12">
                                     <div className="aspect-[3/4] overflow-hidden bg-zinc-900 border border-white/10 grayscale group-hover:grayscale-0 transition-all duration-700 relative">
                                         <Image
-                                            src={member.imageUrl || "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=800"}
+                                            src={member.imageUrl}
                                             alt={member.name}
                                             fill
                                             className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-60 group-hover:opacity-100"
