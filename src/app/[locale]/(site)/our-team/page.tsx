@@ -8,6 +8,9 @@ import { AnimateText } from "@/components/AnimateText";
 import { prisma } from "@/lib/prisma";
 import { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export const metadata: Metadata = {
     title: "Our Team | LACO Attorneys",
     description: "Meet the elite legal minds of LACO Attorneys — founders, partners, and associates specializing in litigation, aviation law, capital markets, and international affairs across Indonesia.",
@@ -22,10 +25,35 @@ export const metadata: Metadata = {
     alternates: { canonical: "https://lacolawyer.com/our-team" },
 };
 
+const FALLBACK_TEAM_IMAGE =
+    "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=800";
+
+function getSafeTeamImageSrc(imageUrl?: string | null) {
+    if (!imageUrl) return FALLBACK_TEAM_IMAGE;
+    if (imageUrl.startsWith("/")) return imageUrl;
+
+    try {
+        const parsed = new URL(imageUrl);
+        if (parsed.protocol === "https:" && parsed.hostname === "images.unsplash.com") {
+            return imageUrl;
+        }
+    } catch {
+        return FALLBACK_TEAM_IMAGE;
+    }
+
+    return FALLBACK_TEAM_IMAGE;
+}
+
 export default async function OurTeamPage() {
-    const teamMembers = await prisma.team.findMany({
-        orderBy: { createdAt: 'asc' }
-    });
+    let teamMembers: Awaited<ReturnType<typeof prisma.team.findMany>> = [];
+
+    try {
+        teamMembers = await prisma.team.findMany({
+            orderBy: { createdAt: "asc" },
+        });
+    } catch (error) {
+        console.error("Failed to fetch team members for /our-team", error);
+    }
 
     return (
         <main className="bg-black text-white min-h-screen selection:bg-white selection:text-black">
@@ -53,7 +81,7 @@ export default async function OurTeamPage() {
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12">
                                     <div className="aspect-[3/4] overflow-hidden bg-zinc-900 border border-white/10 grayscale group-hover:grayscale-0 transition-all duration-700 relative">
                                         <Image
-                                            src={member.imageUrl}
+                                            src={getSafeTeamImageSrc(member.imageUrl)}
                                             alt={member.name}
                                             fill
                                             className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-60 group-hover:opacity-100"
