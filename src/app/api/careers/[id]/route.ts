@@ -1,6 +1,14 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { Prisma } from "@prisma/client";
+
+function hasPrismaErrorCode(error: unknown, code: string) {
+  return (
+    typeof error === "object" &&
+    error !== null &&
+    "code" in error &&
+    (error as { code?: string }).code === code
+  );
+}
 
 export async function PUT(
   request: Request,
@@ -35,7 +43,7 @@ export async function PUT(
 
     return NextResponse.json(updatedCareer, { status: 200 });
   } catch (error) {
-    if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === "P2025") {
+    if (hasPrismaErrorCode(error, "P2025")) {
       return NextResponse.json({ error: "Career not found" }, { status: 404 });
     }
 
@@ -56,7 +64,7 @@ export async function DELETE(
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
-    if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === "P2025") {
+    if (hasPrismaErrorCode(error, "P2025")) {
       return NextResponse.json({ error: "Career not found" }, { status: 404 });
     }
 

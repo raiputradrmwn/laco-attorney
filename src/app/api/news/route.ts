@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { Prisma } from "@prisma/client";
 import { mkdir, writeFile } from "fs/promises";
 import path from "path";
 
@@ -13,6 +12,15 @@ const ALLOWED_IMAGE_TYPES = new Set([
   "image/png",
   "image/webp",
 ]);
+
+function hasPrismaErrorCode(error: unknown, code: string) {
+  return (
+    typeof error === "object" &&
+    error !== null &&
+    "code" in error &&
+    (error as { code?: string }).code === code
+  );
+}
 
 function createSlug(input: string) {
   return input
@@ -145,10 +153,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json(newsItem, { status: 201 });
   } catch (error) {
-    if (
-      error instanceof Prisma.PrismaClientKnownRequestError &&
-      error.code === "P2002"
-    ) {
+    if (hasPrismaErrorCode(error, "P2002")) {
       return NextResponse.json(
         { error: "News slug already exists, please try another title" },
         { status: 409 }
