@@ -18,7 +18,8 @@
         "why_laco": "Why Laco",
         "team": "Our Team",
         "news": "News",
-        "contact": "Contact"
+        "contact": "Contact",
+        "careers": "Careers"
     },
     "Contact": {
         "title": "Initialize Engagement",
@@ -173,7 +174,8 @@
         "insights": "Insights",
         "engagement": "Engagement",
         "legal_terms": "Legal Terms",
-        "about_us": "Upholding justice with elegance, professionalism, and unwavering resilience. Your premier legal partner in Bali, Jakarta, and Yogyakarta."
+        "about_us": "Upholding justice with elegance, professionalism, and unwavering resilience. Your premier legal partner in Bali, Jakarta, and Yogyakarta.",
+        "careers": "Careers"
     },
     "WhyLaco": {
         "label": "The LACO Standard",
@@ -421,5 +423,51 @@
             "cta_title": "Justice for Every Legacy.",
             "cta_button": "Support Our Mission"
         }
+    },
+    "Careers": {
+        "subtitle": "Careers at LACO",
+        "title": "Architecting Legal Excellence.",
+        "description": "We are seeking elite legal minds capable of navigating high-stakes disputes and complex corporate structures. At LACO, you don't just practice law; you define it.",
+        "whyJoin": "Why Join Our Ranks",
+        "features": {
+            "intellectual": {
+                "title": "Intellectual Excellence",
+                "desc": "Work on high-order cases that define the legal landscape of Indonesia."
+            },
+            "global": {
+                "title": "Global Network",
+                "desc": "Collaborate with international partners and a diverse set of global clients."
+            },
+            "growth": {
+                "title": "Rapid Growth",
+                "desc": "We invest in our people through continuous education and performance-based advancement."
+            },
+            "resilience": {
+                "title": "Resilience Culture",
+                "desc": "A professional environment designed for focus, precision, and indomitable spirit."
+            }
+        },
+        "openPositions": "Open Positions",
+        "roles": {
+            "1": {
+                "role": "Senior Associate (Corporate)",
+                "location": "Jakarta"
+            },
+            "2": {
+                "role": "Junior Litigator",
+                "location": "Denpasar"
+            },
+            "3": {
+                "role": "Legal Research Assistant",
+                "location": "Yogyakarta"
+            }
+        },
+        "apply": "Apply Now"
+    },
+    "NotFound": {
+        "title": "404",
+        "subtitle": "Jurisdiction Not Found",
+        "description": "The legal territory you are attempting to access does not exist or has been restructured.",
+        "back_home": "Return to Base"
     }
 }

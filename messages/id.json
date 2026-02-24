@@ -18,7 +18,8 @@
         "why_laco": "Kenapa Laco",
         "team": "Tim Kami",
         "news": "Berita",
-        "contact": "Hubungi Kami"
+        "contact": "Hubungi Kami",
+        "careers": "Karir"
     },
     "Contact": {
         "title": "Mulai Konsultasi",
@@ -173,7 +174,8 @@
         "insights": "Wawasan",
         "engagement": "Keterlibatan",
         "legal_terms": "Ketentuan Hukum",
-        "about_us": "Menegakkan keadilan dengan keanggunan, profesionalisme, dan ketahanan yang tak tergoyahkan. Mitra hukum utama Anda di Bali, Jakarta, dan Yogyakarta."
+        "about_us": "Menegakkan keadilan dengan keanggunan, profesionalisme, dan ketahanan yang tak tergoyahkan. Mitra hukum utama Anda di Bali, Jakarta, dan Yogyakarta.",
+        "careers": "Karir"
     },
     "WhyLaco": {
         "label": "Standar LACO",
@@ -421,5 +423,51 @@
             "cta_title": "Keadilan untuk Setiap Warisan.",
             "cta_button": "Dukung Misi Kami"
         }
+    },
+    "Careers": {
+        "subtitle": "Karir",
+        "title": "Membangun Keunggulan Hukum.",
+        "description": "Kami mencari pemikir hukum elit yang mampu menavigasi sengketa berisiko tinggi dan struktur perusahaan yang kompleks. Di LACO, Anda tidak hanya mempraktikkan hukum; Anda mendefinisikannya.",
+        "whyJoin": "Mengapa Bergabung dengan Kami",
+        "features": {
+            "intellectual": {
+                "title": "Keunggulan Intelektual",
+                "desc": "Bekerja pada kasus-kasus tingkat tinggi yang mendefinisikan lanskap hukum Indonesia."
+            },
+            "global": {
+                "title": "Jaringan Global",
+                "desc": "Berkolaborasi dengan mitra internasional dan beragam klien global."
+            },
+            "growth": {
+                "title": "Pertumbuhan Pesat",
+                "desc": "Kami berinvestasi pada personel kami melalui pendidikan berkelanjutan dan kemajuan berbasis kinerja."
+            },
+            "resilience": {
+                "title": "Budaya Ketangguhan",
+                "desc": "Lingkungan profesional yang dirancang untuk fokus, presisi, dan semangat yang tak tergoyahkan."
+            }
+        },
+        "openPositions": "Posisi Terbuka",
+        "roles": {
+            "1": {
+                "role": "Senior Associate (Korporat)",
+                "location": "Jakarta"
+            },
+            "2": {
+                "role": "Litigator Junior",
+                "location": "Denpasar"
+            },
+            "3": {
+                "role": "Asisten Riset Hukum",
+                "location": "Yogyakarta"
+            }
+        },
+        "apply": "Lamar Sekarang"
+    },
+    "NotFound": {
+        "title": "404",
+        "subtitle": "Yurisdiksi Tidak Ditemukan",
+        "description": "Wilayah hukum yang Anda coba akses tidak ada atau telah direstrukturisasi.",
+        "back_home": "Kembali ke Basis"
     }
 }

@@ -24,6 +24,7 @@ export function Header({ variant = "default" }: HeaderProps) {
         { name: t('why_laco'), path: "/why-laco" },
         { name: t('team'), path: "/our-team" },
         { name: t('news'), path: "/insight" },
+        { name: t('careers'), path: "/careers" },
         { name: t('contact'), path: "/contact" },
     ];
 

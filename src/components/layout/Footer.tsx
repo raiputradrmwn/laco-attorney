@@ -59,6 +59,7 @@ export function Footer() {
                                 <Link href="/why-laco" className="hover:text-white transition-colors">{t('firm_ethos')}</Link>
                                 <Link href="/our-team" className="hover:text-white transition-colors">{t('counsel')}</Link>
                                 <Link href="/insight" className="hover:text-white transition-colors">{t('insights')}</Link>
+                                <Link href="/careers" className="hover:text-white transition-colors">{t('careers')}</Link>
                                 <Link href="/contact" className="hover:text-white transition-colors">{t('engagement')}</Link>
                                 <Link href="#" className="hover:text-white transition-colors">{t('legal_terms')}</Link>
                             </div>

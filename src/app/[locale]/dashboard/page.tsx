@@ -30,7 +30,10 @@ export default function Page() {
               <div className="px-4 lg:px-6">
                 <ChartAreaInteractive />
               </div>
-              <DataTable data={data} />
+              <div className="px-4 lg:px-6 pt-4">
+                <h3 className="text-xl font-bold tracking-tight mb-4">Recent Documents & Inquiries</h3>
+                <DataTable data={data} />
+              </div>
             </div>
           </div>
         </div>

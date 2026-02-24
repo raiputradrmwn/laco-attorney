@@ -15,9 +15,6 @@ export default function Home() {
       <Philosophy />
       <TrustQuote />
       <PracticeAreas />
-      <Team />
-      <News />
-      <Contact />
     </main>
   );
 }

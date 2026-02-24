@@ -45,7 +45,6 @@ export default async function LocaleLayout({
                 <NextIntlClientProvider messages={messages}>
                     <div className="flex min-h-screen flex-col">
                         <main className="flex-1">{children}</main>
-                        <Footer />
                     </div>
                 </NextIntlClientProvider>
             </body>
