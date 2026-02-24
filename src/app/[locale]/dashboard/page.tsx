@@ -26,6 +26,28 @@ type ActivityRow = {
   createdAt: Date
 }
 
+type CareerApplicationRow = {
+  id: string
+  fullName: string
+  email: string
+  createdAt: Date
+  career: {
+    title: string
+  }
+}
+
+type ContactInquiryRow = {
+  id: string
+  name: string
+  email: string
+  status: string
+  createdAt: Date
+}
+
+type NewsViewRow = {
+  viewedAt: Date
+}
+
 function buildNewsViewsSeries(
   rows: Array<{ date: string; views: number }>,
   days = 90
@@ -54,15 +76,7 @@ export default async function Page() {
   ninetyDaysAgo.setDate(ninetyDaysAgo.getDate() - 89)
   ninetyDaysAgo.setHours(0, 0, 0, 0)
 
-  const [
-    teamCount,
-    newsCount,
-    openRolesCount,
-    inquiryCount,
-    latestApplications,
-    latestInquiries,
-    newsViews,
-  ] = await Promise.all([
+  const result = await Promise.all([
     prisma.team.count(),
     prisma.news.count(),
     prisma.career.count({ where: { isActive: true } }),
@@ -82,15 +96,33 @@ export default async function Page() {
     }),
   ])
 
+  const [
+    resolvedTeamCount,
+    resolvedNewsCount,
+    resolvedOpenRolesCount,
+    resolvedInquiryCount,
+    resolvedLatestApplications,
+    resolvedLatestInquiries,
+    resolvedNewsViews,
+  ] = result as [
+    number,
+    number,
+    number,
+    number,
+    CareerApplicationRow[],
+    ContactInquiryRow[],
+    NewsViewRow[],
+  ]
+
   const activities: ActivityRow[] = [
-    ...latestApplications.map((application) => ({
+    ...resolvedLatestApplications.map((application: CareerApplicationRow) => ({
       id: application.id,
       type: "CAREER_APPLICATION" as const,
       title: application.fullName,
       info: `${application.email} - ${application.career.title}`,
       createdAt: application.createdAt,
     })),
-    ...latestInquiries.map((inquiry) => ({
+    ...resolvedLatestInquiries.map((inquiry: ContactInquiryRow) => ({
       id: inquiry.id,
       type: "CONTACT_INQUIRY" as const,
       title: inquiry.name,
@@ -102,7 +134,7 @@ export default async function Page() {
     .slice(0, 10)
 
   const dailyViews = new Map<string, number>()
-  for (const item of newsViews) {
+  for (const item of resolvedNewsViews) {
     const dateKey = item.viewedAt.toISOString().slice(0, 10)
     dailyViews.set(dateKey, (dailyViews.get(dateKey) ?? 0) + 1)
   }
@@ -130,10 +162,10 @@ export default async function Page() {
           <div className="@container/main flex flex-1 flex-col gap-2">
             <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
               <SectionCards
-                teamCount={teamCount}
-                newsCount={newsCount}
-                openRolesCount={openRolesCount}
-                inquiryCount={inquiryCount}
+                teamCount={resolvedTeamCount}
+                newsCount={resolvedNewsCount}
+                openRolesCount={resolvedOpenRolesCount}
+                inquiryCount={resolvedInquiryCount}
               />
               <div className="px-4 lg:px-6">
                 <ChartAreaInteractive data={newsViewsSeries} />
