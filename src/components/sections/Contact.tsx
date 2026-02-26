@@ -8,6 +8,9 @@ import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
 import { toast } from "sonner";
 
+const MAPS_URL =
+    "https://maps.google.com/?q=Jl.+Bajataki+No.8,+Denpasar+Barat,+Denpasar,+Bali";
+
 export function Contact() {
     const t = useTranslations('Contact');
     const [isOpen, setIsOpen] = useState(false);
@@ -34,7 +37,6 @@ export function Contact() {
         setIsOpen(false);
     };
 
-    // Close dropdown when clicking outside
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -118,53 +120,79 @@ export function Contact() {
                     {/* Contact Details */}
                     <AnimateIn from="left" delay={0.6} className="space-y-12 md:space-y-16">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 md:gap-16 border-l border-white/10 pl-6 md:pl-12">
+                            {/* Address */}
                             <div>
                                 <h3 className="text-[9px] md:text-[10px] uppercase tracking-[0.4em] font-black mb-6 md:mb-8 text-zinc-500">{t('chancery')}</h3>
-                                <div className="flex items-start space-x-4 group cursor-pointer">
+                                <a
+                                    href={MAPS_URL}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-start space-x-4 group cursor-pointer"
+                                >
                                     <MapPin className="w-5 h-5 shrink-0 text-white mt-1 group-hover:text-zinc-400 transition-colors" />
-                                    <p className="text-lg md:text-xl font-serif italic text-white group-hover:text-zinc-300 transition-colors">08 Bajataki, West Denpasar,<br />Denpasar Bali, Indonesia</p>
-                                </div>
+                                    <p className="text-lg md:text-xl font-serif italic text-white group-hover:text-zinc-300 transition-colors">
+                                        08 Bajataki, West Denpasar,<br />Denpasar Bali, Indonesia
+                                    </p>
+                                </a>
                             </div>
+
+                            {/* Office Hours */}
                             <div>
                                 <h3 className="text-[9px] md:text-[10px] uppercase tracking-[0.4em] font-black mb-6 md:mb-8 text-zinc-500">{t('office_hours')}</h3>
                                 <div className="flex items-start space-x-4">
                                     <Clock className="w-5 h-5 shrink-0 text-white mt-1" />
-                                    <p className="text-lg md:text-xl font-serif italic text-white">Mon — Fri / 09:00 — 17:00<br /><span className="text-[10px] font-sans not-italic font-black tracking-widest text-zinc-600 uppercase">GMT +8</span></p>
+                                    <p className="text-lg md:text-xl font-serif italic text-white">
+                                        Mon — Fri / 09:00 — 17:00<br />
+                                        <span className="text-[10px] font-sans not-italic font-black tracking-widest text-zinc-600 uppercase">GMT +8</span>
+                                    </p>
                                 </div>
                             </div>
+
+                            {/* Phone */}
                             <div>
                                 <h3 className="text-[9px] md:text-[10px] uppercase tracking-[0.4em] font-black mb-6 md:mb-8 text-zinc-500">{t('secure_line')}</h3>
-                                <div className="flex items-start space-x-4">
-                                    <Phone className="w-5 h-5 shrink-0 text-white mt-1" />
-                                    <p className="text-lg md:text-xl font-serif italic text-white tracking-widest">+628554254445</p>
-                                </div>
+                                <a href="tel:+628554254445" className="flex items-start space-x-4 group">
+                                    <Phone className="w-5 h-5 shrink-0 text-white mt-1 group-hover:text-zinc-400 transition-colors" />
+                                    <p className="text-lg md:text-xl font-serif italic text-white tracking-widest group-hover:text-zinc-300 transition-colors">
+                                        +628554254445
+                                    </p>
+                                </a>
                             </div>
+
+                            {/* Email */}
                             <div>
                                 <h3 className="text-[9px] md:text-[10px] uppercase tracking-[0.4em] font-black mb-6 md:mb-8 text-zinc-500">{t('email')}</h3>
-                                <div className="flex items-start space-x-4">
-                                    <Mail className="w-5 h-5 shrink-0 text-white mt-1" />
-                                    <p className="text-lg md:text-xl font-serif italic text-white break-all">hello@lacolawyer.com</p>
-                                </div>
+                                <a href="mailto:hello@lacolawyer.com" className="flex items-start space-x-4 group">
+                                    <Mail className="w-5 h-5 shrink-0 text-white mt-1 group-hover:text-zinc-400 transition-colors" />
+                                    <p className="text-lg md:text-xl font-serif italic text-white break-all group-hover:text-zinc-300 transition-colors">
+                                        hello@lacolawyer.com
+                                    </p>
+                                </a>
                             </div>
                         </div>
 
-                        {/* Map Area */}
-                        <div className="aspect-video bg-zinc-950 grayscale flex items-center justify-center relative group overflow-hidden border border-white/5">
+                        {/* Map Area — click to open Google Maps */}
+                        <a
+                            href={MAPS_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="aspect-video bg-zinc-950 grayscale hover:grayscale-0 flex items-center justify-center relative group overflow-hidden border border-white/5 transition-all duration-700 cursor-pointer block"
+                        >
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
                                 src="https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&fit=crop&q=80&w=1200"
                                 alt="Bali Aerial"
-                                className="w-full h-full object-cover opacity-20 transition-all duration-1000 group-hover:scale-110 group-hover:opacity-40"
+                                className="w-full h-full object-cover opacity-20 transition-all duration-1000 group-hover:scale-110 group-hover:opacity-50"
                             />
                             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40">
-                                <div className="h-12 md:h-20 w-px bg-white/20 mb-4 md:mb-6 group-hover:h-32 transition-all"></div>
+                                <div className="h-12 md:h-20 w-px bg-white/20 mb-4 md:mb-6 group-hover:h-32 transition-all duration-500"></div>
                                 <span className="text-[9px] md:text-[10px] tracking-[0.4em] md:tracking-[0.5em] font-black uppercase text-white mb-2">Denpasar HQ</span>
                                 <div className="flex items-center text-zinc-500 group-hover:text-white transition-colors text-[10px] md:text-xs space-x-2">
-                                    <span>View Map</span>
-                                    <ChevronRight size={14} />
+                                    <span>Open in Google Maps</span>
+                                    <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </AnimateIn>
 
                     {/* Form */}
@@ -209,8 +237,7 @@ export function Contact() {
                                         <span className={cn(
                                             "text-xs md:text-sm tracking-widest uppercase transition-colors",
                                             selectedPractice ? "text-white" : "text-zinc-800"
-                                        )}
-                                        >
+                                        )}>
                                             {selectedPractice || t('form.select_practice')}
                                         </span>
                                         <ChevronDown className={cn("w-4 h-4 text-zinc-500 transition-transform duration-300", isOpen ? "rotate-180 text-white" : "group-hover:text-white")} />

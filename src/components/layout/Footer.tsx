@@ -36,16 +36,27 @@ export function Footer() {
                             <h4 className="text-[10px] md:text-sm tracking-widest uppercase font-bold text-white mb-4">{t('contact_info')}</h4>
                             <ul className="space-y-4 text-gray-400 font-light text-sm">
                                 <li className="flex flex-col sm:flex-row items-center sm:items-start sm:space-x-3 space-y-2 sm:space-y-0">
-                                    <MapPin className="w-4 h-4 text-white shrink-0 sm:mt-1" />
-                                    <span>08 Bajataki, West Denpasar, Denpasar Bali</span>
+                                    <a
+                                        href="https://maps.google.com/?q=Jl.+Bajataki+No.8,+Denpasar+Barat,+Denpasar,+Bali"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex flex-col sm:flex-row items-center sm:items-start sm:space-x-3 space-y-2 sm:space-y-0 hover:text-white transition-colors"
+                                    >
+                                        <MapPin className="w-4 h-4 text-white shrink-0 sm:mt-1" />
+                                        <span>08 Bajataki, West Denpasar, Denpasar Bali</span>
+                                    </a>
                                 </li>
                                 <li className="flex flex-col sm:flex-row items-center sm:items-start sm:space-x-3 space-y-2 sm:space-y-0">
-                                    <Phone className="w-4 h-4 text-white shrink-0 sm:mt-1" />
-                                    <span>+628554254445</span>
+                                    <a href="tel:+628554254445" className="flex flex-col sm:flex-row items-center sm:items-start sm:space-x-3 space-y-2 sm:space-y-0 hover:text-white transition-colors">
+                                        <Phone className="w-4 h-4 text-white shrink-0 sm:mt-1" />
+                                        <span>+628554254445</span>
+                                    </a>
                                 </li>
                                 <li className="flex flex-col sm:flex-row items-center sm:items-start sm:space-x-3 space-y-2 sm:space-y-0">
-                                    <Mail className="w-4 h-4 text-white shrink-0 sm:mt-1" />
-                                    <span className="break-all">hello@lacolawyer.com</span>
+                                    <a href="mailto:hello@lacolawyer.com" className="flex flex-col sm:flex-row items-center sm:items-start sm:space-x-3 space-y-2 sm:space-y-0 hover:text-white transition-colors break-all">
+                                        <Mail className="w-4 h-4 text-white shrink-0 sm:mt-1" />
+                                        <span>hello@lacolawyer.com</span>
+                                    </a>
                                 </li>
                             </ul>
                         </AnimateIn>
