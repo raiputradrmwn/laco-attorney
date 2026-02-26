@@ -55,20 +55,6 @@ export default function WhyLacoPage() {
                                     {t('p2')}
                                 </p>
                             </div>
-                            <div className="flex items-center space-x-6 border-l border-white/20 pl-8">
-                                <div className="h-20 w-20 rounded-full overflow-hidden grayscale border border-white/10 relative">
-                                    <Image
-                                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200"
-                                        alt="Lilo Agung Crisna Budi"
-                                        fill
-                                        className="object-cover"
-                                    />
-                                </div>
-                                <div>
-                                    <h4 className="font-serif text-xl italic text-white">Lilo Agung Crisna Budi, S.H., M.H.</h4>
-                                    <p className="text-[10px] uppercase tracking-widest text-zinc-500 font-bold">{t('founder_role')}</p>
-                                </div>
-                            </div>
                         </div>
 
                         <div className="relative">
