@@ -35,11 +35,9 @@ function getSafeTeamImageSrc(imageUrl?: string | null) {
 
     try {
         const parsed = new URL(imageUrl);
-        if (parsed.protocol === "https:" && parsed.hostname === "images.unsplash.com") {
-            return imageUrl;
-        }
+        if (parsed.protocol === "https:") return imageUrl;
     } catch {
-        return FALLBACK_TEAM_IMAGE;
+        // fall through to fallback
     }
 
     return FALLBACK_TEAM_IMAGE;

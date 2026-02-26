@@ -150,12 +150,6 @@ export function InsightList() {
                             </article>
                         ))}
                     </div>
-
-                    <div className="mt-40 text-center">
-                        <button className="px-16 py-6 border border-white/20 uppercase tracking-[0.4em] text-xs font-black hover:bg-white hover:text-black transition-all">
-                            Access Full Archive
-                        </button>
-                    </div>
                 </div>
             </div>
             <Footer />

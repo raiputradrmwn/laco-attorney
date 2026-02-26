@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { usePathname } from "@/i18n/routing";
 import { Menu, X } from "lucide-react";
@@ -63,28 +64,15 @@ export function Header({ variant = "default" }: HeaderProps) {
                 )}
             >
                 <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
-                    <Link href="/" className="flex items-center space-x-2 md:space-x-3 group relative z-[60]">
-                        <div className={cn(
-                            "w-7 h-7 md:w-8 md:h-8 flex items-center justify-center group-hover:scale-110 transition-transform",
-                            isInverted ? "bg-black" : "bg-white"
-                        )}>
-                            <span className={cn(
-                                "font-serif font-black text-base md:text-lg",
-                                isInverted ? "text-white" : "text-black"
-                            )}>L</span>
-                        </div>
-                        <span className={cn(
-                            "text-lg md:text-xl font-serif font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase transition-colors",
-                            isInverted ? "text-black" : "text-white"
-                        )}>
-                            LACO{" "}
-                            <span className={cn(
-                                "hidden sm:inline font-light text-[10px] align-middle ml-2 border-l pl-3 tracking-widest",
-                                isInverted ? "border-black/20 text-zinc-500" : "border-white/20 text-zinc-500"
-                            )}>
-                                Attorney at Law
-                            </span>
-                        </span>
+                    <Link href="/" className="flex items-center group relative z-[60]">
+                        <Image
+                            src="/2.png"
+                            alt="LACO Attorneys Logo"
+                            width={120}
+                            height={40}
+                            className="h-8 md:h-10 w-auto object-contain group-hover:opacity-80 transition-opacity"
+                            priority
+                        />
                     </Link>
 
                     {/* Desktop Nav */}

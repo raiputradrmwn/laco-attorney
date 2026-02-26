@@ -43,6 +43,7 @@ type TeamMember = {
     linkedin: string | null;
     email: string | null;
     bio: string | null;
+    imageUrl: string | null;
 }
 
 export function TeamManagement() {
@@ -55,6 +56,8 @@ export function TeamManagement() {
     const [linkedin, setLinkedin] = useState("");
     const [email, setEmail] = useState("");
     const [bio, setBio] = useState("");
+    const [imageUrl, setImageUrl] = useState("");
+    const [imageFile, setImageFile] = useState<File | null>(null);
     const [loading, setLoading] = useState(false);
     const [members, setMembers] = useState<TeamMember[]>([]);
     const [fetching, setFetching] = useState(true);
@@ -90,6 +93,8 @@ export function TeamManagement() {
         setLinkedin("");
         setEmail("");
         setBio("");
+        setImageUrl("");
+        setImageFile(null);
     }
 
     const handleEditClick = (member: TeamMember) => {
@@ -100,6 +105,8 @@ export function TeamManagement() {
         setLinkedin(member.linkedin || "");
         setEmail(member.email || "");
         setBio(member.bio || "");
+        setImageUrl(member.imageUrl || "");
+        setImageFile(null);
         setOpen(true);
     };
 
@@ -114,11 +121,19 @@ export function TeamManagement() {
             const endpoint = editingId ? `/api/team/${editingId}` : "/api/team";
             const method = editingId ? "PUT" : "POST";
 
-            const res = await fetch(endpoint, {
-                method,
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ name, role, specialization, linkedin, email, bio }),
-            });
+            const formData = new FormData();
+            formData.append("name", name.trim());
+            formData.append("role", role.trim());
+            formData.append("specialization", specialization.trim());
+            formData.append("linkedin", linkedin.trim());
+            formData.append("email", email.trim());
+            formData.append("bio", bio);
+            formData.append("imageUrl", imageUrl);
+            if (imageFile) {
+                formData.append("image", imageFile);
+            }
+
+            const res = await fetch(endpoint, { method, body: formData });
 
             if (res.ok) {
                 setOpen(false);
@@ -263,6 +278,25 @@ export function TeamManagement() {
                                         className="col-span-3 bg-zinc-950 border-white/10 text-white rounded-none focus-visible:ring-1 focus-visible:ring-white/50"
                                         placeholder="e.g. https://linkedin.com/in/alexander-vance"
                                     />
+                                </div>
+                                <div className="grid grid-cols-4 items-center gap-4">
+                                    <Label htmlFor="photo" className="text-right text-xs uppercase tracking-widest text-zinc-400">
+                                        Photo
+                                    </Label>
+                                    <div className="col-span-3 space-y-2">
+                                        <Input
+                                            id="photo"
+                                            type="file"
+                                            accept=".jpg,.jpeg,.png,.webp"
+                                            onChange={(e) => setImageFile(e.target.files?.[0] || null)}
+                                            className="bg-zinc-950 border-white/10 text-white rounded-none focus-visible:ring-1 focus-visible:ring-white/50"
+                                        />
+                                        {imageUrl ? (
+                                            <p className="text-[10px] text-zinc-500">
+                                                Current: {imageUrl}
+                                            </p>
+                                        ) : null}
+                                    </div>
                                 </div>
                                 <div className="grid grid-cols-4 items-start gap-4">
                                     <Label htmlFor="bio" className="text-right text-xs uppercase tracking-widest text-zinc-400 pt-3">
