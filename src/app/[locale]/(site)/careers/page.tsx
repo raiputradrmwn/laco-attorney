@@ -1,10 +1,9 @@
-import React from 'react';
 import Image from 'next/image';
 import { Star, Users, Zap, Award } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Header } from '@/components/layout/Header';
 import { CareersOpenings } from '@/components/careers/CareersOpenings';
-
+import { Footer } from "@/components/layout/Footer";
 export default function CareersPage() {
     const t = useTranslations('Careers');
 
@@ -74,6 +73,7 @@ export default function CareersPage() {
                     <CareersOpenings />
                 </div>
             </div>
+            <Footer />
         </main>
     );
 }

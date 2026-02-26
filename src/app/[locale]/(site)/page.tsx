@@ -4,6 +4,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Philosophy } from "@/components/sections/Philosophy";
 import { TrustQuote } from "@/components/sections/TrustQuote";
 import { PracticeAreas } from "@/components/sections/PracticeAreas";
+import { Footer } from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
   title: "LACO Attorneys | Premier Law Firm in Bali, Jakarta & Yogyakarta",
@@ -33,6 +34,7 @@ export default function Home() {
       <Philosophy />
       <TrustQuote />
       <PracticeAreas />
+      <Footer/>  
     </main>
   );
 }

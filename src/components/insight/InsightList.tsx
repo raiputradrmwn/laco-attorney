@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Search, ArrowUpRight, TrendingUp, Globe, Landmark } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import { Header } from "@/components/layout/Header";
 import { toast } from "sonner";
-
+import { Footer } from "@/components/layout/Footer";
 type InsightNewsItem = {
     id: string;
     slug: string;
@@ -158,6 +158,7 @@ export function InsightList() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </main>
     );
 }

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { PracticeAreas } from "@/components/sections/PracticeAreas";
-
+import { Footer } from "@/components/layout/Footer";
 export const metadata: Metadata = {
     title: "Practice Areas | LACO Attorneys",
     description: "Explore LACO Attorneys' areas of expertise including corporate law, litigation, aviation law, capital markets, and intellectual property. Serving clients across Indonesia.",
@@ -23,6 +23,7 @@ export default function PracticePage() {
             <div className="pt-20">
                 <PracticeAreas />
             </div>
+            <Footer />
         </main>
     );
 }

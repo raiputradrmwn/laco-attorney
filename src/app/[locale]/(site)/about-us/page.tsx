@@ -6,7 +6,7 @@ import { Target, Zap, ShieldAlert, Scale } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { AnimateText } from "@/components/AnimateText";
 import { useTranslations } from "next-intl";
-
+import { Footer } from "@/components/layout/Footer";
 
 
 export default function WhyLacoPage() {
@@ -129,6 +129,7 @@ export default function WhyLacoPage() {
                     </section>
                 </div>
             </div>
+            <Footer />
         </main>
     );
 }

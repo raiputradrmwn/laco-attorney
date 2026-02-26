@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Contact } from "@/components/sections/Contact";
-
+import { Footer } from "@/components/layout/Footer";
 export const metadata: Metadata = {
     title: "Contact Us | LACO Attorneys",
     description: "Reach LACO Attorneys at our offices in Denpasar (Bali), Jakarta, and Yogyakarta. Schedule a consultation with our elite legal team today.",
@@ -23,6 +23,7 @@ export default function ContactPage() {
             <div className="pt-20">
                 <Contact />
             </div>
+            <Footer />
         </main>
     );
 }

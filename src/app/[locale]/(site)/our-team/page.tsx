@@ -6,7 +6,7 @@ import { AnimateIn } from "@/components/AnimateIn";
 import { AnimateText } from "@/components/AnimateText";
 import { prisma } from "@/lib/prisma";
 import { Metadata } from "next";
-
+import { Footer } from "@/components/layout/Footer";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
@@ -137,6 +137,7 @@ export default async function OurTeamPage() {
                     </AnimateIn>
                 </div>
             </div>
+            <Footer />
         </main>
     );
 }

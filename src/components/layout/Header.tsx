@@ -20,8 +20,8 @@ export function Header({ variant = "default" }: HeaderProps) {
     const pathname = usePathname();
 
     const navLinks = [
-        { name: t('practice'), path: "/practice" },
-        { name: t('why_laco'), path: "/why-laco" },
+        { name: t('practice'), path: "/practice-area" },
+        { name: t('why_laco'), path: "/about-us" },
         { name: t('team'), path: "/our-team" },
         { name: t('news'), path: "/insight" },
         { name: t('careers'), path: "/careers" },

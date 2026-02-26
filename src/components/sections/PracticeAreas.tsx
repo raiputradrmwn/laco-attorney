@@ -38,7 +38,7 @@ export function PracticeAreas() {
                         return (
                             <AnimateIn key={item.id} from="bottom" delay={index * 0.1} duration={0.8} className="h-full">
                                 <Link
-                                    href={`/practice/${item.slug}`}
+                                    href={`/practice-area/${item.slug}`}
                                     className="group p-6 md:p-8 bg-black hover:bg-zinc-900 transition-all duration-500 flex flex-col justify-between border border-transparent hover:border-white/10 h-full"
                                 >
                                     <div>
