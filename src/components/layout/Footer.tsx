@@ -66,8 +66,8 @@ export function Footer() {
                         <AnimateIn from="bottom" delay={0.3}>
                             <h4 className="text-[10px] md:text-sm tracking-widest uppercase font-bold text-white mb-4">{t('quick_nav')}</h4>
                             <div className="grid grid-cols-2 gap-4 text-gray-400 font-light text-sm max-w-sm mx-auto sm:mx-0">
-                                <Link href="/practice" className="hover:text-white transition-colors">{t('practices')}</Link>
-                                <Link href="/why-laco" className="hover:text-white transition-colors">{t('firm_ethos')}</Link>
+                                <Link href="/practice-area" className="hover:text-white transition-colors">{t('practices')}</Link>
+                                <Link href="/about-us" className="hover:text-white transition-colors">{t('firm_ethos')}</Link>
                                 <Link href="/our-team" className="hover:text-white transition-colors">{t('counsel')}</Link>
                                 <Link href="/insight" className="hover:text-white transition-colors">{t('insights')}</Link>
                                 <Link href="/careers" className="hover:text-white transition-colors">{t('careers')}</Link>
