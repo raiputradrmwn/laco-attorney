@@ -43,6 +43,11 @@ const data: { navMain: NavMainItem[] } = {
       url: "/dashboard/inquiries",
       icon: "inquiries",
     },
+    {
+      title: "Practices",
+      url: "/dashboard/practices",
+      icon: "practices",
+    },
   ],
 }
 

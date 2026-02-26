@@ -4,6 +4,8 @@ import {
     SidebarInset,
     SidebarProvider,
 } from "@/components/ui/sidebar"
+import React from "react"
+import { PracticeAreasManagement } from "./components/PracticeAreasManagement"
 
 export default function PracticesPage() {
     return (
@@ -19,16 +21,8 @@ export default function PracticesPage() {
             <SidebarInset>
                 <SiteHeader />
                 <div className="flex flex-1 flex-col">
-                    <div className="flex-1 p-8 pt-6 space-y-4">
-                        <h2 className="text-3xl font-bold tracking-tight">Practices Areas</h2>
-                        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-                            {/* Add stats cards here */}
-                        </div>
-
-                        <div className="bg-white rounded-lg border p-8 text-center text-muted-foreground mt-8">
-                            <h3 className="text-lg font-medium text-foreground mb-2">No Practice Areas Found</h3>
-                            <p className="mb-4">Get started by creating a new practice area description.</p>
-                        </div>
+                    <div className="flex-1 p-8 pt-6">
+                        <PracticeAreasManagement />
                     </div>
                 </div>
             </SidebarInset>

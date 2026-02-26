@@ -6,6 +6,7 @@ const withNextIntl = createNextIntlPlugin(
 );
 
 const nextConfig: NextConfig = {
+  serverExternalPackages: ['pg', '@prisma/adapter-pg', 'bcryptjs'],
   images: {
     remotePatterns: [
       {
@@ -21,3 +22,4 @@ const nextConfig: NextConfig = {
 };
 
 export default withNextIntl(nextConfig);
+

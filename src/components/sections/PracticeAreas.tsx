@@ -1,15 +1,35 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Link } from "@/i18n/routing";
 import { Section } from "@/components/Section";
-import { PRACTICE_AREAS } from "@/lib/mock-data";
 import * as LucideIcons from "lucide-react";
 import { AnimateIn } from "@/components/AnimateIn";
 import { AnimateText } from "@/components/AnimateText";
 import { useTranslations } from "next-intl";
 
+interface PracticeArea {
+    id: string;
+    slug: string;
+    icon: string;
+    order: number;
+    isActive: boolean;
+}
+
 export function PracticeAreas() {
     const t = useTranslations('PracticeAreas');
+    const [areas, setAreas] = useState<PracticeArea[]>([]);
+
+    useEffect(() => {
+        fetch("/api/practices")
+            .then((r) => r.json())
+            .then((data) => {
+                if (Array.isArray(data)) {
+                    setAreas(data.filter((a) => a.isActive));
+                }
+            })
+            .catch(() => { });
+    }, []);
 
     return (
         <Section id="practice" className="bg-black text-white py-24 md:py-40" fullWidth>
@@ -31,8 +51,7 @@ export function PracticeAreas() {
                 </header>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-white/5 border border-white/5">
-                    {PRACTICE_AREAS.map((item, index) => {
-                        // Dynamically resolve the icon component
+                    {areas.map((item, index) => {
                         const IconComponent = (LucideIcons as unknown as Record<string, React.ComponentType<{ className?: string }>>)[item.icon];
 
                         return (
@@ -47,14 +66,14 @@ export function PracticeAreas() {
                                                 {IconComponent ? <IconComponent className="w-6 h-6 md:w-5 md:h-5 lg:w-6 lg:h-6" /> : null}
                                             </div>
                                             <span className="text-zinc-800 font-serif text-2xl md:text-3xl font-bold group-hover:text-zinc-700 transition-colors">
-                                                {item.id.padStart(2, '0')}
+                                                {String(item.order).padStart(2, '0')}
                                             </span>
                                         </div>
                                         <h3 className="text-lg md:text-xl font-serif mb-4 md:mb-6 uppercase tracking-tight italic leading-snug">
-                                            {t(item.title)}
+                                            {t(`items.${item.slug}.title`)}
                                         </h3>
                                         <p className="text-zinc-500 font-light text-[11px] md:text-xs leading-relaxed mb-6 md:mb-8">
-                                            {t(item.description)}
+                                            {t(`items.${item.slug}.desc`)}
                                         </p>
                                     </div>
                                     <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] border-b border-white/20 pb-2 group-hover:border-white transition-all w-fit">

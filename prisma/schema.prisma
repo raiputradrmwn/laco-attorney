@@ -20,16 +20,16 @@ model Team {
 }
 
 model News {
-  id          String   @id @default(cuid())
+  id          String     @id @default(cuid())
   title       String
   category    String
-  slug        String   @unique
+  slug        String     @unique
   imageUrl    String
   content     String
   views       NewsView[]
-  publishedAt DateTime @default(now())
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  publishedAt DateTime   @default(now())
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
 }
 
 model NewsView {
@@ -83,6 +83,16 @@ model User {
   email     String   @unique
   password  String
   role      String   @default("ADMIN")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model PracticeArea {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  icon      String
+  order     Int      @default(0)
+  isActive  Boolean  @default(true)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

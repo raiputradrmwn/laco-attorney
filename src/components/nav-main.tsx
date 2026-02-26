@@ -5,6 +5,7 @@ import {
   IconFileWord,
   IconListDetails,
   IconReport,
+  IconScale,
   IconUsers,
 } from "@tabler/icons-react"
 import { Link } from "@/i18n/routing"
@@ -22,6 +23,7 @@ const ICONS = {
   news: IconFileWord,
   careers: IconListDetails,
   inquiries: IconReport,
+  practices: IconScale,
 } as const
 
 export type NavMainIconKey = keyof typeof ICONS
