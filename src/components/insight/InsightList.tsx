@@ -91,8 +91,7 @@ export function InsightList() {
                         </div>
                     </header>
 
-                    {/* Investment Market Stats Panel */}
-                    <section className="mb-32 grid grid-cols-1 md:grid-cols-4 gap-px bg-white/10 border border-white/10 overflow-hidden">
+                    {/* <section className="mb-32 grid grid-cols-1 md:grid-cols-4 gap-px bg-white/10 border border-white/10 overflow-hidden">
                         <div className="p-8 bg-zinc-950">
                             <TrendingUp size={20} className="mb-4 text-zinc-400" />
                             <h4 className="text-[10px] uppercase tracking-widest text-zinc-500 font-bold mb-2">FDI Growth (Bali)</h4>
@@ -113,7 +112,7 @@ export function InsightList() {
                                 Request Investment Brief
                             </Link>
                         </div>
-                    </section>
+                    </section> */}
 
                     {/* Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-24">
