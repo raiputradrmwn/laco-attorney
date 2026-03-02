@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from 'react';
-import { Search, ArrowUpRight, TrendingUp, Globe, Landmark } from 'lucide-react';
+import { Search, ArrowUpRight } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import { Header } from "@/components/layout/Header";
 import { toast } from "sonner";
@@ -121,32 +121,34 @@ export function InsightList() {
                         ) : filteredInsights.length === 0 ? (
                             <div className="text-zinc-400 text-sm">No insights found.</div>
                         ) : filteredInsights.map((item) => (
-                            <article key={item.id} className="group cursor-pointer">
-                                <div className="aspect-[16/10] bg-zinc-900 mb-10 overflow-hidden border border-white/5 relative">
-                                    <img src={item.imageUrl} alt={item.title} className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 opacity-40 group-hover:opacity-100" />
-                                    <div className="absolute top-6 left-6">
-                                        <span className="text-[10px] tracking-widest uppercase bg-black/80 backdrop-blur-md text-white px-4 py-2 border border-white/10 font-black">{item.category}</span>
+                            <Link key={item.id} href={`/insight/${item.slug}`} className="group block cursor-pointer">
+                                <article>
+                                    <div className="aspect-[16/10] bg-zinc-900 mb-10 overflow-hidden border border-white/5 relative">
+                                        <img src={item.imageUrl} alt={item.title} className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 opacity-40 group-hover:opacity-100" />
+                                        <div className="absolute top-6 left-6">
+                                            <span className="text-[10px] tracking-widest uppercase bg-black/80 backdrop-blur-md text-white px-4 py-2 border border-white/10 font-black">{item.category}</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="flex items-center justify-between mb-6">
-                                    <span className="text-[10px] text-zinc-500 tracking-[0.2em] font-bold uppercase">
-                                        {new Date(item.publishedAt).toLocaleDateString("en-US", {
-                                            month: "short",
-                                            day: "2-digit",
-                                            year: "numeric",
-                                        })}
+                                    <div className="flex items-center justify-between mb-6">
+                                        <span className="text-[10px] text-zinc-500 tracking-[0.2em] font-bold uppercase">
+                                            {new Date(item.publishedAt).toLocaleDateString("en-US", {
+                                                month: "short",
+                                                day: "2-digit",
+                                                year: "numeric",
+                                            })}
+                                        </span>
+                                        <div className="h-px bg-white/10 flex-grow mx-6"></div>
+                                        <ArrowUpRight size={16} className="text-zinc-500 group-hover:text-white transition-colors" />
+                                    </div>
+                                    <h3 className="text-3xl font-serif mb-6 group-hover:text-zinc-300 transition-colors italic leading-tight text-balance">{item.title}</h3>
+                                    <p className="text-zinc-500 font-light leading-relaxed mb-8 text-lg text-balance">
+                                        {toExcerpt(item.content)}
+                                    </p>
+                                    <span className="text-[10px] font-black uppercase tracking-[0.3em] border-b-2 border-white/10 pb-2 group-hover:border-white transition-all inline-block">
+                                        Read Publication
                                     </span>
-                                    <div className="h-px bg-white/10 flex-grow mx-6"></div>
-                                    <ArrowUpRight size={16} className="text-zinc-500 group-hover:text-white transition-colors" />
-                                </div>
-                                <h3 className="text-3xl font-serif mb-6 group-hover:text-zinc-300 transition-colors italic leading-tight text-balance">{item.title}</h3>
-                                <p className="text-zinc-500 font-light leading-relaxed mb-8 text-lg text-balance">
-                                    {toExcerpt(item.content)}
-                                </p>
-                                <Link href={`/insight/${item.slug}`} className="text-[10px] font-black uppercase tracking-[0.3em] border-b-2 border-white/10 pb-2 group-hover:border-white transition-all inline-block">
-                                    Read Publication
-                                </Link>
-                            </article>
+                                </article>
+                            </Link>
                         ))}
                     </div>
                 </div>

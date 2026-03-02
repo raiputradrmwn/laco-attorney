@@ -5,6 +5,7 @@ import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
 import Link from "@tiptap/extension-link";
 import Image from "@tiptap/extension-image";
+import OrderedList from "@tiptap/extension-ordered-list";
 import TextAlign from "@tiptap/extension-text-align";
 import Placeholder from "@tiptap/extension-placeholder";
 import { Button } from "@/components/ui/button";
@@ -24,6 +25,36 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+const OrderedListWithStyle = OrderedList.extend({
+    addAttributes() {
+        return {
+            ...this.parent?.(),
+            listStyleType: {
+                default: "decimal",
+                parseHTML: (element) => {
+                    const inlineType = element.style.listStyleType;
+                    if (inlineType) return inlineType;
+
+                    const htmlType = element.getAttribute("type");
+                    if (htmlType === "a" || htmlType === "A") return "lower-alpha";
+
+                    return "decimal";
+                },
+                renderHTML: (attributes) => {
+                    const listStyleType =
+                        (attributes.listStyleType as string | undefined) ?? "decimal";
+
+                    if (listStyleType === "decimal") return {};
+
+                    return {
+                        style: `list-style-type: ${listStyleType};`,
+                    };
+                },
+            },
+        };
+    },
+});
+
 type EditorProps = {
     value?: string;
     onChange?: (html: string) => void;
@@ -41,7 +72,13 @@ export default function EditorClient({
 }: EditorProps) {
     const editor = useEditor({
         extensions: [
-            StarterKit.configure({ heading: { levels: [2, 3] } }),
+            StarterKit.configure({
+                heading: { levels: [2, 3] },
+                orderedList: false,
+            }),
+            OrderedListWithStyle.configure({
+                keepMarks: true,
+            }),
             Underline,
             Link.configure({
                 openOnClick: true,
@@ -72,6 +109,34 @@ export default function EditorClient({
         }
     }, [editor, value]);
 
+    const toggleOrderedListType = React.useCallback(
+        (listStyleType: "decimal" | "lower-alpha") => {
+            if (!editor) return;
+
+            if (editor.isActive("orderedList", { listStyleType })) {
+                editor.chain().focus().toggleOrderedList().run();
+                return;
+            }
+
+            if (editor.isActive("orderedList")) {
+                editor
+                    .chain()
+                    .focus()
+                    .updateAttributes("orderedList", { listStyleType })
+                    .run();
+                return;
+            }
+
+            editor
+                .chain()
+                .focus()
+                .toggleOrderedList()
+                .updateAttributes("orderedList", { listStyleType })
+                .run();
+        },
+        [editor]
+    );
+
     const fileInputRef = React.useRef<HTMLInputElement>(null);
     const handlePickImage = () => fileInputRef.current?.click();
     const handleFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -88,7 +153,7 @@ export default function EditorClient({
 
     return (
         <div className={cn("rounded-md border border-white/10 bg-black/50 overflow-hidden", className)}>
-            <div className="flex flex-wrap items-center gap-1 p-2 bg-zinc-950/80 border-b border-white/10">
+            <div className="flex flex-wrap items-center p-3 bg-zinc-950/80 border-b border-white/10">
                 <Toggle
                     size="sm"
                     pressed={editor?.isActive("bold")}
@@ -168,14 +233,38 @@ export default function EditorClient({
                 </Button>
                 <Button
                     size="sm"
-                    variant={editor?.isActive("orderedList") ? "secondary" : "ghost"}
+                    variant={
+                        editor?.isActive("orderedList", { listStyleType: "decimal" })
+                            ? "secondary"
+                            : "ghost"
+                    }
                     className="hover:bg-white/10 hover:text-white"
                     onClick={(e) => {
                         e.preventDefault();
-                        editor?.chain().focus().toggleOrderedList().run();
+                        toggleOrderedListType("decimal");
                     }}
                 >
                     <ListOrdered className="h-4 w-4" />
+                </Button>
+                <Button
+                    size="sm"
+                    variant={
+                        editor?.isActive("orderedList", { listStyleType: "lower-alpha" })
+                            ? "secondary"
+                            : "ghost"
+                    }
+                    className="hover:bg-white/10 hover:text-white"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        toggleOrderedListType("lower-alpha");
+                    }}
+                >
+                    <span className="relative inline-flex h-4 w-4 items-center justify-center">
+                        <ListOrdered className="h-4 w-4" />
+                        <span className="absolute -bottom-1 -right-1 text-[8px] font-semibold leading-none">
+                            a
+                        </span>
+                    </span>
                 </Button>
                 <Button
                     size="sm"
